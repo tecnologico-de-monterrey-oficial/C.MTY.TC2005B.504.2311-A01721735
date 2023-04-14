@@ -1,17 +1,19 @@
 import './App.css';
 import Title from './components/Title';
 import Counter from './components/Counter';
+import NavBar from './components/NavBar';
 
 function App() {
 
-  const name = 'Eduardo Tello';
+  
 
   return (
     <div className="App">
-      <Title 
-        title = 'My Profile'
-        name = {name}
-      />
+      <NavBar />
+      
+      
+      
+      
       <Counter />
     </div>
   );
