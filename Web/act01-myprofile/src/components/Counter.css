@@ -5,6 +5,28 @@
     text-align: center;
     color: yellow;
 }
+
+.ButtonUp{
+    background-color: indianred;
+    color: white;
+}
+
+.ButtonUp:hover{
+    background-color: indianred;
+    color: white;
+}
+
+.ButtonDown{
+
+    background-color: blueviolet;
+    color: black;
+}
+
+.ButtonDown:hover{
+
+    background-color: blueviolet;
+    color: black;
+}
    
    
    
