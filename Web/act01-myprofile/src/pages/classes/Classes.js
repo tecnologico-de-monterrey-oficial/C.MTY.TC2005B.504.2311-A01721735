@@ -1,29 +1,23 @@
-import { Container, Row, Col} from 'react-bootstrap';
-
+import { Container, Row, Col, Button} from 'react-bootstrap';
+import classesData from '../../data/classesData.js'
+import {useState} from 'react';
 
 function Classes(){
 
-    const classes = [{
-        id: 1,
-        name: 'Construccion de software',
-        teacher: 'David Cantu',
-        salon: 'A3-305'
+const [classes, setClasses] = useState(classesData);
 
-    },
-    {
-        id: 2,
-        name: 'Construccion de software - Videojuegos',
-        teacher: 'Claudia Solis',
-        salon: 'A3-305'
-    },
-    {
-        id: 3,
-        name: 'Construccion de software - BD',
-        teacher: 'Juan Carlos Lavarriega',
-        salon: 'A3-305'
-    }
+const handleDelete = (id) => {
+    console.log(id);
+    setClasses( (prevClasses) => {
+        return prevClasses.filter((course) => course.id !== id);
+    })
+    
+    //setClasses(
+    //    classes.filter((course) => course.id !== id
+    //));
+}
 
-    ]
+    
 
     return(
     
@@ -35,11 +29,18 @@ function Classes(){
         <Col>2 of 3</Col>
         <Col>3 of 3</Col>
       </Row>
-      {classes.map((clase) => (
-        <Row key = {clase.id}>
-        <Col>{clase.name}</Col>
-        <Col>{clase.teacher}</Col>
-        <Col>{clase.salon}</Col>
+
+      {classes.length === 0 && 
+        <Row>
+            <Col>No hay clases</Col>
+        </Row>
+      }
+      {classes.map((course) => (
+        <Row key = {course.id}>
+        <Col>{course.name}</Col>
+        <Col>{course.teacher}</Col>
+        <Col>{course.classroom}</Col>
+        <Col><Button variant = "danger" onClick = {() => {handleDelete(course.id)}}>Borrar</Button></Col>
       </Row>
         ))}
     </Container>
