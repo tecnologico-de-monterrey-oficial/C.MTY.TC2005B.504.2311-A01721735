@@ -8,7 +8,7 @@ function NavBar() {
         <Navbar bg="primary" variant="dark">
         <Container>
           
-          <Navbar.Brand href="/">
+          <Navbar.Brand as = {Link} to="/">
             <img
                 alt=""
               src="/logotecmty.jpg"
@@ -20,8 +20,9 @@ function NavBar() {
 
             Tec de Mty</Navbar.Brand>
           <Nav className="me-auto">
-            <Link to="/">Perfil</Link>
-            <Link to = "/classes">Classes</Link>
+            <Nav.Link as = {Link} to = "/">Perfil</Nav.Link>
+            <Nav.Link as = {Link} to = "/classes">Classes</Nav.Link>
+            <Nav.Link as = {Link} to = "/counter">Counter</Nav.Link>
             
           </Nav>
         </Container>
