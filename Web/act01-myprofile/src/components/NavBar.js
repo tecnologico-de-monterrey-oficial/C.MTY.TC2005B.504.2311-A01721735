@@ -11,7 +11,7 @@ function NavBar() {
           <Navbar.Brand as = {Link} to="/">
             <img
                 alt=""
-              src="/logotecmty.jpg"
+              src="logotecmty.png"
               width="30"
               height="30"
               className="d-inline-block align-top"
@@ -20,9 +20,10 @@ function NavBar() {
 
             Tec de Mty</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link as = {Link} to = "/">Perfil</Nav.Link>
+            <Nav.Link as = {Link} to = "/">Profile</Nav.Link>
             <Nav.Link as = {Link} to = "/classes">Classes</Nav.Link>
             <Nav.Link as = {Link} to = "/counter">Counter</Nav.Link>
+            <Nav.Link as = {Link} to = "/projects">Projects</Nav.Link>
             
           </Nav>
         </Container>

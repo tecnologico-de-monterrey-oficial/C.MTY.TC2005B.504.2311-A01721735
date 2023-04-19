@@ -12,9 +12,7 @@ const handleDelete = (id) => {
         return prevClasses.filter((course) => course.id !== id);
     })
     
-    //setClasses(
-    //    classes.filter((course) => course.id !== id
-    //));
+    
 }
 
     
@@ -25,9 +23,9 @@ const handleDelete = (id) => {
     
             <Container>
       <Row>
-        <Col>1 of 3</Col>
-        <Col>2 of 3</Col>
-        <Col>3 of 3</Col>
+        <Col>Course</Col>
+        <Col>Teacher</Col>
+        <Col>Classroom</Col>
       </Row>
 
       {classes.length === 0 && 

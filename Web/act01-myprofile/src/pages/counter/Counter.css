@@ -3,7 +3,7 @@
 .Counter{
     font-size: 1.5em;
     text-align: center;
-    color: yellow;
+    color: rgb(255, 255, 255);
 }
 
 .ButtonUp{
@@ -19,7 +19,7 @@
 .ButtonDown{
 
     background-color: blueviolet;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .ButtonDown:hover{
