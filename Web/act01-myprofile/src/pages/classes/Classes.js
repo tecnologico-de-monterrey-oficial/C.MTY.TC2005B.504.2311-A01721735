@@ -1,10 +1,13 @@
 import { Container, Row, Col, Button} from 'react-bootstrap';
 import classesData from '../../data/classesData.js'
 import {useState} from 'react';
+import AddCourse from '../addCourse/AddCourse.js';
+
 
 function Classes(){
 
 const [classes, setClasses] = useState(classesData);
+const [modalShow, setModalShow] = useState(false);
 
 const handleDelete = (id) => {
     console.log(id);
@@ -15,9 +18,24 @@ const handleDelete = (id) => {
     
 }
 
+const addCourse = (course) => {
+    console.log("Course");
+    setClasses( (prevClasses) => {
+        return [...prevClasses, course];
+    });
+}
     
+const handleShow = () => {
+  setModalShow(true);
+
+}
+
+const handleClose = () => {
+  setModalShow(false);
+}
 
     return(
+        <>  
     
             
     
@@ -26,6 +44,7 @@ const handleDelete = (id) => {
         <Col>Course</Col>
         <Col>Teacher</Col>
         <Col>Classroom</Col>
+        <Col><Button variant = "success" onClick = {handleShow}>Agregar</Button></Col>
       </Row>
 
       {classes.length === 0 && 
@@ -42,7 +61,12 @@ const handleDelete = (id) => {
       </Row>
         ))}
     </Container>
-    
+    <AddCourse
+    show = {modalShow}
+    onHide = {handleClose}
+    handleAddCourse = {addCourse}
+    />
+    </>
    
     );
 }
