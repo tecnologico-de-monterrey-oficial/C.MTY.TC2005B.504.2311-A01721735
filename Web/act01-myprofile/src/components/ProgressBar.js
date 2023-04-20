@@ -20,14 +20,15 @@ function StripedExample() {
         
     }
 
-
     
-
+    
   return (
     <div>
       <ProgressBar striped variant="success" animated now={number} label = {number} />
       <Button className = "ButtonIncrease" variant="info" size = "lg" onClick={increase}>Increase Percentage</Button>
       <Button className = "ButtonDecrease" variant="danger" size = "lg" onClick={decrease}>Decrease Percentage</Button>
+      
+
     </div>
   );
 }
