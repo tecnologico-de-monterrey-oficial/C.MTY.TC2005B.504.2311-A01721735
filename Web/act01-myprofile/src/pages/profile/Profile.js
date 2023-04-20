@@ -1,5 +1,6 @@
 import Title from '../../components/Title';
 import ProgressBar from '../../components/ProgressBar';
+import AlertsD from '../../components/AlertsD';
 
 function Profile(){
 
@@ -7,6 +8,7 @@ function Profile(){
     return(
 
       <div>
+        <AlertsD />
 <Title 
   title = 'My Profile'
   name = {name}

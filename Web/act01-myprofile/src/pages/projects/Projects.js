@@ -1,4 +1,4 @@
-
+import AlertsC from '../../components/AlertsC';
 
 function Projects(){
 
@@ -8,6 +8,8 @@ function Projects(){
         
         <body>
 
+
+<AlertsC />
 <div class="projects">
 <a target="_blank" href="cisco.png">
   <img src="cisco.png" alt="CISCO Network Design" width="1400" height="400"/>
