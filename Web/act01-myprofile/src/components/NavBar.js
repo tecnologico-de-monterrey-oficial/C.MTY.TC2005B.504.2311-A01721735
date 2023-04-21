@@ -24,7 +24,7 @@ function NavBar() {
             <Nav.Link as = {Link} to = "/classes">Classes</Nav.Link>
             <Nav.Link as = {Link} to = "/counter">Counter</Nav.Link>
             <Nav.Link as = {Link} to = "/projects">Projects</Nav.Link>
-            <Nav.Link as = {Link} to = "/addCourse">Add Course</Nav.Link>
+            
             
           </Nav>
         </Container>

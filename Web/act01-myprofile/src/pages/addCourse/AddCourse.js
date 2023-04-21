@@ -3,58 +3,11 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 
-function AddCourse({show, onhide, handleAddCourse}) {
-  const [id, setID] = useState(0);
-  const [name, setName] = useState("");
-  const [teacher, setTeacher] = useState("");
-  const [classroom, setClassroom] = useState("");
-  // const [course, setCourse] = useState({
-  //   id: 0,
-  //   name: "",
-  //   teacher: "",
-  //   classroom: ""
-  // });
-
-  const handleChangeName = (event) => {
-    setName(event.target.value);
-    // setCourse( (prevCourse) => {
-    //   return {
-    //     ...prevCourse,
-    //     name: event.target.value
-    //     }
-    //   })
-    // console.log(event.target.value);
-  };
-  const handleChangeID = (event) => {
-    setID(event.target.value);
-    // setCourse( (prevCourse) => {
-    //   return {
-    //     ...prevCourse,
-    //     id: event.target.value
-    //     }
-    //   })
-    // console.log(event.target.value);
-  };
-  const handleChangeTeacher = (event) => {
-    setTeacher(event.target.value);
-    // setCourse( (prevCourse) => {
-    //   return {
-    //     ...prevCourse,
-    //     teacher: event.target.value
-    //     }
-    //   })
-    // console.log(event.target.value);
-  };
-  const handleChangeClassroom = (event) => {
-    setClassroom(event.target.value);
-    // setCourse( (prevCourse) => {
-    //   return {
-    //     ...prevCourse,
-    //     classroom: event.target.value
-    //     }
-    //   })
-    // console.log(event.target.value);
-  };
+function AddCourse({show, onhide, course, modalMode, handleCourse}) {
+  const [id, setID] = useState(course.id);
+  const [name, setName] = useState(course.name);
+  const [teacher, setTeacher] = useState(course.teacher);
+  const [classroom, setClassroom] = useState(course.classroom);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -64,14 +17,7 @@ function AddCourse({show, onhide, handleAddCourse}) {
       teacher: teacher,
       classroom: classroom
     };
-    // setCourse(newCourse);
-    
-    handleAddCourse(newCourse);
-
-    setName("");
-    setID(0);
-    setTeacher("");
-    setClassroom("");
+    handleCourse(newCourse); // Llamada a la función que está en Classes.js
     onhide();
   };
 
@@ -85,18 +31,18 @@ function AddCourse({show, onhide, handleAddCourse}) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Agregar un nuevo curso
+          {modalMode === 'add' ? 'Agregar un nuevo curso' : 'Editar un nuevo curso'}
         </Modal.Title>
       </Modal.Header>
-    <Form onSubmit={handleSubmit}>
     <Modal.Body>
+    <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="id">
         <Form.Label>ID</Form.Label>
         <Form.Control
           type="text"
           placeholder="Teclea el ID"
           value={id}
-          onChange={handleChangeID}
+          onChange={(event) => {setID(event.target.value)}}
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="name">
@@ -105,7 +51,7 @@ function AddCourse({show, onhide, handleAddCourse}) {
           type="text"
           placeholder="Teclea tu nombre"
           value={name}
-          onChange={handleChangeName}
+          onChange={(event) => {setName(event.target.value)}}
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="teacher">
@@ -114,7 +60,7 @@ function AddCourse({show, onhide, handleAddCourse}) {
           type="text"
           placeholder="Teclea el nombre del profesor"
           value={teacher}
-          onChange={handleChangeTeacher}
+          onChange={(event) => {setTeacher(event.target.value)}}
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="classroom">
@@ -123,17 +69,17 @@ function AddCourse({show, onhide, handleAddCourse}) {
           type="text"
           placeholder="Teclea el salón de la clase"
           value={classroom}
-          onChange={handleChangeClassroom}
+          onChange={(event) => {setClassroom(event.target.value)}}
         />
       </Form.Group>
       <Modal.Footer>
-      <Button onClick={onhide}>Close</Button>
-      <Button variant="primary" type="submit">
-        Submit
+      <Button onClick={onhide} variant="danger">Cerrar</Button>
+      <Button variant="success" type="submit">
+      {modalMode === 'add' ? 'Actualizar' : 'Editar'}
       </Button>
       </Modal.Footer>
-    </Modal.Body>
     </Form>
+    </Modal.Body>
     </Modal>
   );
 }
