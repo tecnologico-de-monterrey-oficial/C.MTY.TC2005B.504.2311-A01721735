@@ -1,10 +1,9 @@
 import { Form, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import "./ManagePam.css";
 import { useSelector, useDispatch } from "react-redux";
-import { changeName, changeLastName, changeEmail, changeBirthDate, addPam } from '../../store';
+import { changeName, changeLastName, changeEmail, changeBirthDate, addPam, editPam } from '../../store'; 
+import "./ManagePam.css";
 import { useNavigate, useParams } from "react-router-dom";
-
 
 function ManagePam() {
   const params = useParams();
@@ -12,55 +11,55 @@ function ManagePam() {
   const [mode, setMode] = useState('add');
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {name, last_name, email, birth_date} = useSelector((state) => state.pam);
-  
+  const { name, last_name, email, birth_date  } = useSelector((state) => state.pam);
+
   useEffect(() => {
-    if(params.id) {
+    if (params.pam_id) {
       setMode('edit');
-    } else{
+    } else {
       setMode('add');
     }
   }, [params]);
 
-
   const handleChangeName = (event) => {
-    console.log(event.target.value);
-    dispatch(changeName(event.target.value))
+    // console.log(event.target.value);
+    dispatch(changeName(event.target.value));
   };
   const handleChangeLastName = (event) => {
-    console.log(event.target.value);
-    dispatch(changeLastName(event.target.value))
+    // console.log(event.target.value);
+    dispatch(changeLastName(event.target.value));
   };
   const handleChangeEmail = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    dispatch(changeEmail(event.target.value));
   };
   const handleChangeBirthDate = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    dispatch(changeBirthDate(event.target.value));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(mode === 'add'){
+    if (mode === 'add') {
       dispatch(addPam(
+        { 
+          name: name, 
+          last_name: last_name, 
+          email: email, 
+          birth_date: birth_date 
+        }
+      ));
+    } else {
+      dispatch(editPam(
         {
+          id: params.pam_id,
           name: name,
           last_name: last_name,
           email: email,
           birth_date: birth_date
-
+        }
+      ));
     }
-      ));
-  } else {
-    
-  }
-    dispatch(addPam(
-      {
-        name: name,
-        last_name: last_name,
-        email: email,
-        birth_date: birth_date
-      }
-      ));
     navigate('/pams');
   };
 
