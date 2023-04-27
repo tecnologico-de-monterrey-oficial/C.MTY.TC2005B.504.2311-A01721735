@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fdf39a;
+  background-color: white;
+  background-image: url('C:\Users\marie\OneDrive\Documentos\GitHub\C.MTY.TC2005B.504.2311-A01721735\Web\act02-pams\public\fondo.jpg');
 }
 
 code {

@@ -21,7 +21,7 @@ function App() {
           <Route path="/pams/add2" element={<Forms2 />} />
           <Route path="/pams/add3" element={<Forms3 />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> 
     </div>
   );
 }

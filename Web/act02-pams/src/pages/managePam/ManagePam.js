@@ -73,7 +73,6 @@ function ManagePam() {
 
     <>  
     
-    
     <div class="vertical-center"> 
     <Form className ="form-info" align = "center" onSubmit={handleSubmit}>
       <Row className="mb-3">

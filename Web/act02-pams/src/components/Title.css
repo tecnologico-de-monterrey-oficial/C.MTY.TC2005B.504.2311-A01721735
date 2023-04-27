@@ -1,3 +1,16 @@
 .Title {
-    font-family: 'Bruno Ace', cursive;
+    font-family: 'Lucida Handwriting', cursive;
+}
+
+h1 {
+    font-family: 'Alkatra', cursive;
+}
+
+.Title, h2{
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Neucha', cursive;
+    font-size: 40px;
 }
