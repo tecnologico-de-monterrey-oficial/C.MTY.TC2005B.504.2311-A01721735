@@ -3,3 +3,8 @@ h3 {
     font-family: 'Bangers', cursive;
     padding-left: 60px;
 }
+
+Table {
+    align-items: center;
+    color:blue
+}
