@@ -52,7 +52,9 @@ function ManagePam() {
           email: email, 
           birth_date: birth_date 
         }
+        
       ));
+      navigate('/pams/add2');
     } else {
       dispatch(editPam(
         {
@@ -172,10 +174,17 @@ function ManagePam() {
 
 
         <div>
-          <Button variant="danger" onClick={() => navigate(`/pams/add2`)}>Continuar</Button>
-           <Button variant="success" type="submit">
-             {mode === "add" ? 'Guardar' : 'Actualizar'}
-          </Button>
+        <Button variant="primary" type="submit" onClick={() => navigate(`/pams/add`)}>
+                    Regresar
+                </Button>
+
+          <Button variant="danger" type="submit" onClick={() => navigate(`/pams/add2`)}>
+            {mode === "add" ? 'Siguiente' : 'Siguiente'}
+            </Button>
+          
+          <Button variant="success" type="submit">
+                 {mode === "add" ? 'Guardar' : 'Actualizar'}
+              </Button>
         </div>
     </Form>
     </div>
