@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 
 function ManagePam() {
+  //A
   const params = useParams();
   console.log(params);
   const [mode, setMode] = useState('add');
@@ -100,7 +101,7 @@ function ManagePam() {
           type="email" 
           placeholder="Teclea Email"
           value={email}
-          onChange={handleChangeEmail} />
+          onChange={handleChangeEmail} /> 
         </Form.Group>
         </Row>
       
