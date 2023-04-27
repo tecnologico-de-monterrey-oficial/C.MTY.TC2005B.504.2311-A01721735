@@ -3,3 +3,44 @@
     margin: 0 6rem;
     justify-content: center;
 }
+
+.form-control{
+    
+    width: 100%;
+}
+
+.form-label{
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.form-info{
+    max-width: 1200px;
+    margin: 0 auto ;
+    padding: 2rem;
+    border: 1px solid #000000;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px #000000;
+    background-color: rgb(141, 136, 95);
+    
+}
+
+.my-form{
+    max-width: 1000px;
+    margin: 0 auto ;
+    align-items: center;
+    
+
+    
+}
+
+.vertical-center {
+  
+    top: 50%;
+    -ms-transform: translateY(10%);
+    transform: translateY(10%);
+    
+}
+
+
