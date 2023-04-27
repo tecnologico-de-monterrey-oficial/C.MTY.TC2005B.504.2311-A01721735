@@ -23,6 +23,8 @@ function ManagePam() {
     }
   }, [params]);
 
+  
+
   const handleChangeName = (event) => {
     // console.log(event.target.value);
     dispatch(changeName(event.target.value));
@@ -170,8 +172,9 @@ function ManagePam() {
 
 
         <div>
+          <Button variant="danger" onClick={() => navigate(`/pams/add2`)}>Continuar</Button>
            <Button variant="success" type="submit">
-             {mode === "add" ? 'Guardar y Continuar' : 'Actualizar'}
+             {mode === "add" ? 'Guardar' : 'Actualizar'}
           </Button>
         </div>
     </Form>
