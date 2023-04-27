@@ -15,6 +15,7 @@ function App() {
           <Route path="/pams" element={<PersonasAdultasMayores />} />
           <Route path="/pams/add" element={<ManagePam />} />
           <Route path="/pams/edit/:pam_id" element={<ManagePam />} />
+          <Route path="/pams/add2" element={<ManagePam />} />
         </Routes>
       </BrowserRouter>
     </div>
