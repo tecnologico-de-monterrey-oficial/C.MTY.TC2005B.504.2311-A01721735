@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
-  background-image: url('C:\Users\marie\OneDrive\Documentos\GitHub\C.MTY.TC2005B.504.2311-A01721735\Web\act02-pams\public\fondo.jpg');
+  background-image: url('/public/fondo.jpg')
 }
 
 code {
