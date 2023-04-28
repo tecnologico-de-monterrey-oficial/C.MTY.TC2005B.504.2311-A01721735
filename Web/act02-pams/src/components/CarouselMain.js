@@ -38,7 +38,7 @@ function CarouselMain(){
     
             <Carousel.Caption>
               <h2>Vision</h2>
-              <p>Ser la aplicación líder en brindar empoderamiento y herramientas para que las personas de la tercera edad vivan plenamente y satisfactoriamente.</p>
+              <p>Ser la aplicación líder en brindar empoderamiento y herramientas para que las personas de la tercera edad vivan plenamente.</p>
             </Carousel.Caption>
           </Carousel.Item>
           
