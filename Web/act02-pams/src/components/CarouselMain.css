@@ -1,0 +1,49 @@
+.carousel-container {
+  overflow: hidden; /* Hide the overflow */
+  margin: 0 auto; /* Center the container on the page */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width:1740px;
+  height: 180px;
+  margin: auto;
+ 
+}
+  
+  .carousel-item img {
+
+    width: 100%; /* adjust the percentage value as needed */
+    opacity: 0.6;
+    height: 200px; /* maintain aspect ratio */
+    object-fit: cover; /* or object-fit: cover */
+  }
+
+  .carousel-caption{
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+  }
+
+  .carousel-container h2 {
+    text-shadow: 0 0 50px rgba(0, 0, 0, 5);
+    text-align: center;
+   
+  }
+
+  .carousel-container p{
+    text-align: center;
+    font-family: 'Segoe UI';
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+  }

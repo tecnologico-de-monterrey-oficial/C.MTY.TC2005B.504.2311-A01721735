@@ -1,0 +1,17 @@
+.Title {
+    font-family: 'Lucida Handwriting', cursive;
+}
+
+h1 {
+    font-family: 'Alkatra', cursive;
+}
+
+.Title h2{
+    text-align: center;
+    padding-top: 10px;
+}
+
+h2 {
+    font-family: 'Neucha', cursive;
+    font-size: 40px;
+}
