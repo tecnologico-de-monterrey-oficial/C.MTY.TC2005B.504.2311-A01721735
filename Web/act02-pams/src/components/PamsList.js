@@ -45,7 +45,7 @@ function PamsList() {
               </th>
             <th>
             <Link to="add">
-              <Button variant="success">Agregar</Button>
+              <Button className = "custom-button" variant="success">Agregar</Button>
               </Link>
               </th>
           </tr>

@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import './NavigationBar.css';
 
@@ -32,6 +33,15 @@ function NavigationBar() {
               className="d-inline-block align-top"
             />{' '}
           </Navbar.Brand>
+          </Nav>
+          <Nav>
+            <Navbar.Brand as={Link} to='/login'>
+
+              <Button variant="outline-dark"> Iniciar Sesión </Button>
+              
+            </Navbar.Brand>
+
+            
           </Nav>
         </Container>
       </Navbar>
