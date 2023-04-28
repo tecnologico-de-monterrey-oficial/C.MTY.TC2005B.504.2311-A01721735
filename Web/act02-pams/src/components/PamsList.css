@@ -1,10 +1,14 @@
 h3 {
     padding-top: 40px;
-    font-family: 'Bangers', cursive;
-    padding-left: 60px;
+    font-family: 'Segoe UI';
+
 }
 
 Table {
     align-items: center;
     color:blue
 }
+
+.custom-button {
+    font-family: 'Segoe UI';
+  }

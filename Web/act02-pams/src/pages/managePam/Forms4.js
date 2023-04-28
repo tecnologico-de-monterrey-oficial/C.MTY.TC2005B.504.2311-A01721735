@@ -1,6 +1,6 @@
 import { Form, Button, Row, Col, ProgressBar } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-
+import './ManagePam.css';
 function Forms4(){
 
     const navigate = useNavigate();
@@ -37,7 +37,7 @@ function Forms4(){
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formSangre">
-                <Form.Label>Tipo sangre</Form.Label>
+                <Form.Label>Tipo sangre<span className="customAsterisk">*</span></Form.Label>
                 <Form.Control 
                 type="text" 
                 placeholder="Teclea Tipo de Sangre"

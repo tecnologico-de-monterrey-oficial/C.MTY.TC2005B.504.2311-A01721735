@@ -6,7 +6,7 @@ function Title() {
       <div className="Title">
         <br></br>
         <h1>Nuevo Horizonte</h1>
-        <br></br>
+        
         
       </div>
     );

@@ -6,8 +6,9 @@ h1 {
     font-family: 'Alkatra', cursive;
 }
 
-.Title, h2{
+.Title h2{
     text-align: center;
+    padding-top: 10px;
 }
 
 h2 {

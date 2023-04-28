@@ -1,6 +1,6 @@
 import { Form, Button, Row, Col,ProgressBar } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-
+import './ManagePam.css';
 
 function Forms2(){
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ function Forms2(){
                 <Row className="mb-3">
 
                 <Form.Group as={Col} controlId="formGrupo">
-          <Form.Label>Grupos</Form.Label>
+          <Form.Label>Grupos<span className="customAsterisk">*</span></Form.Label>
           <Form.Select placeholder="Seleciona Grupo..">
             <option value = "" disabled selected>Selecciona Grupo..</option>
             <option>Decanto</option>

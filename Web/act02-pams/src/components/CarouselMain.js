@@ -12,7 +12,7 @@ function CarouselMain(){
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>Objetivo</h3>
+              <h2>Objetivo</h2>
               <p>Contribuir a la toma de decisiones eficiente para el cuidado de personas de la tercera edad.</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -24,11 +24,23 @@ function CarouselMain(){
             />
     
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h2>Mision</h2>
+              <p>Mejorar la calidad de vida de las personas de la tercera edad.</p>
             </Carousel.Caption>
           </Carousel.Item>
           
+          <Carousel.Item>
+            <img
+              
+              src="img3test.jpg"
+              alt="Second slide"
+            />
+    
+            <Carousel.Caption>
+              <h2>Vision</h2>
+              <p>Ser la aplicación líder en brindar empoderamiento y herramientas para que las personas de la tercera edad vivan plenamente y satisfactoriamente.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
           
         </Carousel>
         </div>

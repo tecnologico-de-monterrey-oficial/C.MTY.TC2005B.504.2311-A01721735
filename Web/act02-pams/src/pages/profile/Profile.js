@@ -40,7 +40,7 @@ function Profile() {
                 
                 
               </MDBCardBody>
-              <p className="text-muted mb-1">Imagen</p>
+              <p className="text-muted mb-1">Perfil</p>
               <div className="d-flex justify-content-center mb-2">
                 </div>
               
@@ -50,26 +50,15 @@ function Profile() {
               <MDBCardBody className="p-0">
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBCardText>Texto</MDBCardText>
+                    <MDBCardText>Historial</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBCardText>Texto</MDBCardText>
+                    <MDBCardText>Actividad</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBCardText>Texto</MDBCardText>
+                    <MDBCardText>Ambito</MDBCardText>
                   </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBCardText>Texto</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBCardText>Texto</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBCardText>Texto</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBCardText>Texto</MDBCardText>
-                  </MDBListGroupItem>
+                  
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                   <div className="d-flex justify-content-center mb-2">
                   <Button outline className="me-1" variant = "outline-danger">Logout</Button>

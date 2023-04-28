@@ -100,25 +100,27 @@ function ManagePam() {
       <h1>Información Personal</h1>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formNombre">
-          <Form.Label>Nombre</Form.Label>
+          <Form.Label>Nombre<span className="customAsterisk">*</span></Form.Label>
           <Form.Control 
           type="text" 
           placeholder="Teclea Nombre"
           value={name}
           onChange={handleChangeName}  />
+        
         </Form.Group>
         <Form.Group as={Col} controlId="formApellido">
-          <Form.Label>Apellidos</Form.Label>
+          <Form.Label>Apellidos<span className="customAsterisk">*</span></Form.Label>
           <Form.Control 
           type="text" 
           placeholder="Teclea tus apellidos"
           value={last_name}
-          onChange={handleChangeLastName} />
+          onChange={handleChangeLastName} 
+        />
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formEmail">
-          <Form.Label>Correo</Form.Label>
+          <Form.Label>Correo<span className="customAsterisk">*</span></Form.Label>
           <Form.Control 
           type="email" 
           placeholder="Teclea Email"
@@ -130,10 +132,10 @@ function ManagePam() {
       <Row className="mb-3">
       <Form.Group as={Col} controlId="formTelefono">
         <Form.Label>Telefono</Form.Label>
-        <Form.Control placeholder="Ej. 819001485" />
+        <Form.Control placeholder="Ej. 819001485"/>
       </Form.Group>
       <Form.Group as={Col} controlId="formRol">
-          <Form.Label>Rol</Form.Label>
+          <Form.Label>Rol<span className="customAsterisk">*</span></Form.Label>
           <Form.Select placeholder="Seleciona Rol..">
             <option value = "" disabled selected>Seleciona Rol..</option>
             <option>Persona de tercera edad</option>
@@ -143,7 +145,7 @@ function ManagePam() {
       </Row>
       <Row className="mb-3">
           <Form.Group as={Col}  controlId="birth_date">
-        <Form.Label>Fecha de Nacimiento</Form.Label>
+        <Form.Label>Fecha de Nacimiento<span className="customAsterisk">*</span></Form.Label>
       <Form.Control
         type="date"
          placeholder="Teclea tu fecha de nacimiento"

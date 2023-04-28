@@ -46,4 +46,17 @@
     transform: translateY(10%);  
 }
 
+.custom-button {
+    font-family: 'Segoe UI';
+  }
 
+.required {
+    color: red;
+    margin-left: 5px;
+  }
+
+  .customAsterisk {
+    color: red;
+    font-size: 1.5em;
+    line-height: 0.8em;
+  }
