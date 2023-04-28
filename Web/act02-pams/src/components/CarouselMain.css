@@ -9,3 +9,9 @@
    
     height: 600px; /* maintain aspect ratio */
   }
+
+  .carousel-caption{
+    top: 72%;
+    transform: translateY(-70%);
+    transform: translateX(-5%);
+  }
