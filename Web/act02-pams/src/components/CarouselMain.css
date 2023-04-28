@@ -1,0 +1,11 @@
+.carousel-container {
+    width: 50%; /* Set a specific width */
+    height: 50%; /* Set a specific height */
+    margin: 0 auto; /* Center the container on the page */
+  }
+  
+  .carousel-item img {
+    width: 1000px; /* adjust the percentage value as needed */
+   
+    height: 600px; /* maintain aspect ratio */
+  }

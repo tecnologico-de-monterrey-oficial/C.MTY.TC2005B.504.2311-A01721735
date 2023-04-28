@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeName, changeLastName, changeEmail, changeBirthDate, addPam, editPam } from '../../store'; 
 import "./ManagePam.css";
 import { useNavigate, useParams } from "react-router-dom";
+import BarProgress from "../../components/BarProgress";
+import {progress, setProgress} from "../../components/BarProgress";
+import ProgressBar from 'react-bootstrap/ProgressBar';
 // import GridComplexExample from "../../components/GridComplexExample";
 
 
@@ -14,6 +17,9 @@ function ManagePam() {
   const [mode, setMode] = useState('add');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [progress, setProgress] = useState(0);
+
   const { name, last_name, email, birth_date  } = useSelector((state) => state.pam);
 
   useEffect(() => {
@@ -24,6 +30,19 @@ function ManagePam() {
     }
   }, [params]);
 
+
+  const handleInputChange = (event) => {
+    const totalFields = 9; // total number of fields in the form
+    let filledFields = 0;
+    const inputs = event.currentTarget.getElementsByTagName('input');
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value !== '') {
+            filledFields++;
+        }
+    }
+    const newProgress = Math.round((filledFields / totalFields) * 19);
+    setProgress(newProgress);
+};
   
 
   const handleChangeName = (event) => {
@@ -68,6 +87,7 @@ function ManagePam() {
       ));
     }
     navigate('/pams');
+    handleInputChange(event);
   };
 
   return (
@@ -75,7 +95,9 @@ function ManagePam() {
     <>  
     
     <div class="vertical-center"> 
+    
     <Form className ="form-info" align = "center" onSubmit={handleSubmit}>
+      <h1>Información Personal</h1>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formNombre">
           <Form.Label>Nombre</Form.Label>
@@ -173,7 +195,11 @@ function ManagePam() {
 
 
 
+
         <div>
+          <div className="mb-3">
+          <ProgressBar striped variant = "success" animated now = {0} label={`${0}%`} />
+          </div>
         <Button variant="primary" type="submit" onClick={() => navigate(`/pams/add`)}>
                     Regresar
                 </Button>

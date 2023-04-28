@@ -11,8 +11,8 @@ function NavigationBar() {
           <Navbar.Brand as={Link} to='/'>
           <img
               alt=""
-              src="/logo.png"
-              height="30"
+              src="/logoHorizonte.png"
+              height="50"
               className="d-inline-block align-top"
             />{' '}
           </Navbar.Brand>
@@ -21,6 +21,17 @@ function NavigationBar() {
             <Nav.Link className="NavLink" as={Link} to="/pams">Personas Adultas Mayores</Nav.Link> */}
             <Link className="Link" to="/">Abuelitos ABP</Link>
             <Link className="Link" to="/pams">Personas Adultas Mayores</Link>
+            
+          </Nav>
+          <Nav>
+          <Navbar.Brand as={Link} to='/profile'>
+          <img
+              alt=""
+              src="/profileIcon.png"
+              height="50"
+              className="d-inline-block align-top"
+            />{' '}
+          </Navbar.Brand>
           </Nav>
         </Container>
       </Navbar>

@@ -1,63 +1,57 @@
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col,ProgressBar } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
-function Forms3(){
 
+function Forms2(){
     const navigate = useNavigate();
-    const handleSubmit = (event) => {
-
-        event.preventDefault();
-        navigate('/pams');
-
-    
-};
     return(
         <>
         <div class = "vertical-center">
-            <Form className ="form-info" align = "center"
-            onSubmit =  {handleSubmit} >
+            <Form className ="form-info" align = "center" >
+                <h1>Informacion de Grupo</h1>
                 <Row className="mb-3">
-                <Form.Group as={Col} controlId="formPeso">
-                <Form.Label>Peso</Form.Label>
-                <Form.Control 
-                type="number" 
-                placeholder="Teclea Peso"
-                 />
-                </Form.Group>
 
+                <Form.Group as={Col} controlId="formGrupo">
+          <Form.Label>Grupos</Form.Label>
+          <Form.Select placeholder="Seleciona Grupo..">
+            <option value = "" disabled selected>Selecciona Grupo..</option>
+            <option>Decanto</option>
+            <option>Zonas</option>
+            <option>Parroquia</option>
+            <option>Capillas</option>
+            <option>Otros</option>
+          </Form.Select>
+        </Form.Group>
+
+                
                 </Row>
 
-                <Form.Group as={Col} controlId="formAltura">
-                <Form.Label>Altura</Form.Label>
-                <Form.Control 
-                type="number" 
-                placeholder="Teclea Altura"
-                 />
-                </Form.Group>
 
-                <Form.Group as={Col} controlId="formSangre">
-                <Form.Label>Tipo sangre</Form.Label>
-                <Form.Control 
-                type="text" 
-                placeholder="Teclea Tipo de Sangre"
-                 />
-                </Form.Group>
+                <div>
+                <div className="mb-3">
+          <ProgressBar striped variant = "success" animated now = {78} label={`${78}%`} />
+          </div>
 
                 <Button variant="primary" type="submit" onClick={() => navigate(`/pams/add2`)}>
                     Regresar
                 </Button>
 
-                <Button variant="success" type="submit">
+
+
+          <Button variant="danger" type="submit" onClick={() => navigate(`/pams/add4`)}>
+            Siguiente
+            </Button>
+          
+          <Button variant="success" type="submit">
                  Guardar
               </Button>
-
-                
-
+        </div>
                 </Form>
-                </div>
 
+        </div>
         </>
+
     );
 }
 
-export default Forms3;
+export default Forms2;

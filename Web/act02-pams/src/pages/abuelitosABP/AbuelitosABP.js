@@ -1,5 +1,8 @@
 import Title from "../../components/Title";
+import CarouselMain from "../../components/CarouselMain";
 import "./AbuelitosABP.css";
+
+
 
 function AbuelitosABP() {
   return (
@@ -13,7 +16,10 @@ function AbuelitosABP() {
       <Title />
        <h2> "Cambiando vidas un paso a la vez..."</h2>
       <br></br>
+      <CarouselMain />
       </div>
+
+      
    
     </div>
   );

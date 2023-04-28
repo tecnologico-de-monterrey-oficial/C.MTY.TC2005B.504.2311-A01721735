@@ -1,5 +1,6 @@
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 function Forms2(){
     const navigate = useNavigate();
@@ -7,6 +8,7 @@ function Forms2(){
         <>
         <div class = "vertical-center">
             <Form className ="form-info" align = "center" >
+                <h1>Informacion de Direccion</h1>
                 <Row className="mb-3">
 
                 <Form.Group as={Col} controlId="formPais">
@@ -66,6 +68,9 @@ function Forms2(){
 
 
                 <div>
+                <div className="mb-3">
+          <ProgressBar striped variant = "success" animated now = {47} label={`${47}%`} />
+          </div>
 
                 <Button variant="primary" type="submit" onClick={() => navigate(`/pams/add`)}>
                     Regresar
