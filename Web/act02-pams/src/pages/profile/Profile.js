@@ -12,8 +12,10 @@ import {
   MDBProgressBar,
   MDBIcon,
   MDBListGroup,
-  MDBListGroupItem
+  MDBListGroupItem,
+  MDBBtn
 } from 'mdb-react-ui-kit';
+import Button from 'react-bootstrap/Button';
 
 // https://mdbootstrap.com/docs/react/extended/profiles/#example3
 
@@ -69,7 +71,9 @@ function Profile() {
                     <MDBCardText>Texto</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBCardText>Texto</MDBCardText>
+                  <div className="d-flex justify-content-center mb-2">
+                  <Button outline className="me-1" variant = "outline-danger">Logout</Button>
+                </div>
                   </MDBListGroupItem>
                   
                 </MDBListGroup>

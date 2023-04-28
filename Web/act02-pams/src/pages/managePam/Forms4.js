@@ -44,8 +44,11 @@ function Forms4(){
                  />
                 </Form.Group>
 
+                <br></br>
+                
+
                 <div className="mb-3">
-          <ProgressBar striped variant = "success" animated now = {84} label={`${84}%`} />
+          <ProgressBar striped variant = "success" animated now = {84} />
           </div>
 
                 <Button variant="primary" type="submit" onClick={() => navigate(`/pams/add2`)}>

@@ -68,8 +68,9 @@ function Forms2(){
 
 
                 <div>
+                    
                 <div className="mb-3">
-          <ProgressBar striped variant = "success" animated now = {47} label={`${47}%`} />
+          <ProgressBar striped variant = "success" animated now = {47}  />
           </div>
 
                 <Button variant="primary" type="submit" onClick={() => navigate(`/pams/add`)}>
