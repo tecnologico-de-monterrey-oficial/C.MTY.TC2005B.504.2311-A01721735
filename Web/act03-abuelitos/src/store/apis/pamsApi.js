@@ -17,12 +17,24 @@ const pamsApi = createApi({
           };
         },
       }),
+      addPam: builder.mutation({
+        invalidatesTags: ["Pams"],
+        query: (pam) => {
+          return {
+            method: 'POST',
+            url: '/addPam',
+            body: {
+              name: pam.name,
+              last_name: pam.last_name,
+              email: pam.email,
+              birth_date: pam.birth_date
+            },
+          };
+        },
+      }),
     };
   },
 });
 
-
-export const { 
-    useFetchPamsQuery, 
-  } = pamsApi;
-  export { pamsApi };
+export const { useFetchPamsQuery, useAddPamMutation } = pamsApi;
+export { pamsApi };
