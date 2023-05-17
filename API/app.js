@@ -4,7 +4,7 @@ const cors = require('cors')
 const fs = require('fs')
 const path = require('path')
 const morgan = require('morgan')
-const router = require('./routes/routes')
+const router = require('./routes/route')
 const app = express()
 
 app.use(cors())
