@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Abuelitos />} />
           <Route path="/pams" element={<PersonasAdultasMayores />} />
           <Route path="/pams/add" element={<ManagePam />} />
-          {/* <Route path="/pams/edit/:pam_id" element={<ManagePam />} /> */}
+          <Route path="/pams/edit/:pam_id" element={<ManagePam />} />
         </Routes>
       </BrowserRouter>
     </div>

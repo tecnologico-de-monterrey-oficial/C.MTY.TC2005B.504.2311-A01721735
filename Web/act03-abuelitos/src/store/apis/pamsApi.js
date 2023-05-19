@@ -32,9 +32,33 @@ const pamsApi = createApi({
           };
         },
       }),
+      editPam: builder.mutation({
+        invalidatesTags: ["Pams"],
+        query: (pam) => {
+          return {
+            method: 'PUT',
+            url: `/updatePam/${pam.pam_id}`,
+            body: {
+              name: pam.name,
+              last_name: pam.last_name,
+              email: pam.email,
+              birth_date: pam.birth_date
+            },
+          };
+        },
+      }),
+      deletePam: builder.mutation({
+        invalidatesTags: ["Pams"],
+        query: (id) => {
+          return {
+            method: 'DELETE',
+            url: `/deletePam/${id}`,
+          };
+        },
+      }),
     };
   },
 });
 
-export const { useFetchPamsQuery, useAddPamMutation } = pamsApi;
+export const { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } = pamsApi;
 export { pamsApi };
