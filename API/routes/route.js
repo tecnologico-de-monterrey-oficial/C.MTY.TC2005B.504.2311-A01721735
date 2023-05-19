@@ -5,9 +5,9 @@ const pageController = require('../controllers/pageController');
 const roleController = require('../controllers/roleController');
 const router = express.Router();
 
-router.get('/api/getPams', pamController.getPams); //
-router.get('/api/getPam/:id', pamController.getPam); //
-router.post('/api/addPam', pamController.addPam); //
+router.get('/api/getPams', pamController.getPams);
+router.get('/api/getPam/:id', pamController.getPam);
+router.post('/api/addPam', pamController.addPam);
 router.put('/api/updatePam/:id', pamController.updatePam);
 router.get('/api/getRoles', roleController.getRoles);
 router.delete('/api/deletePam/:id', pamController.deletePam);

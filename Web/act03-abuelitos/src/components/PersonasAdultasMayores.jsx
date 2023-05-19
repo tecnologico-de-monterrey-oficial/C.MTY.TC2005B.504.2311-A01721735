@@ -1,4 +1,4 @@
-import "./PersonaAdultasMayores.css";
+
 import { Table, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useFetchPamsQuery, changePam, useDeletePamMutation } from "../store";
