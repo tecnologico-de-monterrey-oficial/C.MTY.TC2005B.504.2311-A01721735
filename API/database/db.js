@@ -1,24 +1,19 @@
-const mysql = require("../database/db");
+const mysql = require('mysql2')
+const dbConfig = require("../config/db.config.js");
 
-class MainController {
-    async getRoles(req, res) {
-        console.log("Get Roles");
-        var sql = `call sp_get_roles()`;
-        mysql.query(sql, (error, data, fields) => {
-            if (error) {
-                res.status(500);
-                res.send(error.message);
-            } else {
-                console.log("Roles Data:")
-                var roles = data[0];
-                res.json({
-                    roles,
-                });
-            }
-        });
-    }
+// Create a connection to the database
+const connection = mysql.createConnection({
+    host: dbConfig.HOST,
+    user: dbConfig.USER,
+    password: dbConfig.PASSWORD,
+    database: dbConfig.DB
+  });
 
-}
+// open the MySQL connection
+connection.connect(error => {
+    if (error) throw error;
+    console.log("Successfully connected to the database.");
+});
 
-const roleController = new MainController();
-module.exports = roleController;
+
+module.exports = connection;
