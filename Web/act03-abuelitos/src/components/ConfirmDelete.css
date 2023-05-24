@@ -1,0 +1,9 @@
+.modal-dialog {
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+.confirmDelete-title {
+    color: red;
+    font-weight: bold;
+  }

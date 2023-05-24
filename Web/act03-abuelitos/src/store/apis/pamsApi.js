@@ -27,7 +27,9 @@ const pamsApi = createApi({
               name: pam.name,
               last_name: pam.last_name,
               email: pam.email,
-              birth_date: pam.birth_date
+              birth_date: pam.birth_date,
+              archdiocese: pam.archdiocese,
+              deanery_id: pam.deanery_id,
             },
           };
         },
@@ -42,7 +44,9 @@ const pamsApi = createApi({
               name: pam.name,
               last_name: pam.last_name,
               email: pam.email,
-              birth_date: pam.birth_date
+              birth_date: pam.birth_date,
+              archdiocese: pam.archdiocese,
+              deanery_id: pam.deanery_id,
             },
           };
         },

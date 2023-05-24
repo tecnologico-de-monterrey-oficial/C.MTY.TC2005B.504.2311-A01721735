@@ -50,15 +50,15 @@ class MainController {
       req.body.name != null &&
       req.body.last_name != null &&
       req.body.email != null &&
-      req.body.birth_date != null &&
-      req.body.role_id != null
+      req.body.birth_date != null 
     ) {
       let name = req.body.name;
       let last_name = req.body.last_name;
       let email = req.body.email;
       let birth_date = req.body.birth_date;
-      let role_id = req.body.role_id;
-      var sql = `call sp_add_pam('${name}', '${last_name}', '${email}', '${birth_date}', ${role_id});`;
+      let archdiocese = req.body.archdiocese;
+      let deanery_id = req.body.deanery_id;
+      var sql = `call sp_add_pam('${name}', '${last_name}', '${email}', '${birth_date}', ${archdiocese}, ${deanery_id});`;
       mysql.query(sql, (error, data, fields) => {
         if (error) {
           res.status(500);
@@ -87,16 +87,16 @@ class MainController {
       req.body.name != null &&
       req.body.last_name != null &&
       req.body.email != null &&
-      req.body.birth_date != null &&
-      req.body.role_id != null
+      req.body.birth_date != null  
     ) {
       let pamID = req.params.id;
       let name = req.body.name;
       let last_name = req.body.last_name;
       let email = req.body.email;
       let birth_date = req.body.birth_date;
-      let role_id = req.body.role_id;
-      var sql = `call sp_edit_pam(${pamID},'${name}', '${last_name}', '${email}', '${birth_date}', ${role_id});`;
+      let archdiocese = req.body.archdiocese;
+      let deanery_id = req.body.deanery_id;
+      var sql = `call sp_edit_pam(${pamID},'${name}', '${last_name}', '${email}', '${birth_date}',${archdiocese},${deanery_id});`;
       mysql.query(sql, (error, data, fields) => {
         if (error) {
           res.status(500);

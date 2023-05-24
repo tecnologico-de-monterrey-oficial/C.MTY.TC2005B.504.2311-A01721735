@@ -1,16 +1,22 @@
 const express = require('express');
 const pamController = require('../controllers/pamController');
+const archdioceseController = require('../controllers/archdioceseController');
+const zoneController = require('../controllers/zoneController');
+const deaneryController = require('../controllers/deaneryController');
 const bookController = require('../controllers/bookController');
 const pageController = require('../controllers/pageController');
-const roleController = require('../controllers/roleController');
 const router = express.Router();
 
 router.get('/api/getPams', pamController.getPams);
 router.get('/api/getPam/:id', pamController.getPam);
 router.post('/api/addPam', pamController.addPam);
 router.put('/api/updatePam/:id', pamController.updatePam);
-router.get('/api/getRoles', roleController.getRoles);
 router.delete('/api/deletePam/:id', pamController.deletePam);
+router.get('/api/getArchdioceses', archdioceseController.getArchdioceses);
+router.get('/api/getZones/:id', zoneController.getZones);
+router.get('/api/getdeaneries/:id', deaneryController.getDeaneries);
+//router.get('/api/getArchdiocese', archdioceseController.getArchdiocese);
+//router.get('/api/getRoles', roleController.getRoles);
 router.get('/api/getBooks', bookController.getBooks);
 router.get('/api/getBook/:id', bookController.getBook);
 router.post('/api/addBook', bookController.addBook);
