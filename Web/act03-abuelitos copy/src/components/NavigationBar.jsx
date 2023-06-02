@@ -21,7 +21,6 @@ function NavigationBar() {
             <Nav.Link className="NavLink" as={Link} to="/pams">Personas Adultas Mayores</Nav.Link> */}
             <Link className="Link" to="/">Abuelitos</Link>
             <Link className="Link" to="/pams">Personas Adultas Mayores</Link>
-            <Link className = "Link" to="/cfs">CFS</Link>
           </Nav>
         </Container>
       </Navbar>
