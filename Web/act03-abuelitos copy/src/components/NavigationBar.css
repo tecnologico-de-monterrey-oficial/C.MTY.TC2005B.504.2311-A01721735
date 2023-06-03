@@ -1,0 +1,25 @@
+.NavBar {
+    background-color: #000;
+}
+
+.Link {
+    color: #fdf39a;
+    text-decoration: none;
+    padding: 0 .5em;
+    opacity: .85;
+}
+
+.Link:hover {
+    color: #fdf39a;
+    opacity: .60;
+}
+
+.Link:visited {
+    color: #fdf39a;
+    opacity: .85;
+}
+
+.Link:active {
+    color: #fdf39a;
+    opacity: 1;
+}
