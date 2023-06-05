@@ -4,7 +4,7 @@ import NavigationBar from './components/NavigationBar';
 import Abuelitos from './components/Abuelitos';
 import PersonasAdultasMayores from './components/PersonasAdultasMayores';
 import ManagePam from './components/ManagePam';
-import CFS from './components/CFS';
+import Registro from './components/Registro';
 function App() {
   return (
     <div className="App">
@@ -15,7 +15,7 @@ function App() {
           <Route path="/pams" element={<PersonasAdultasMayores />} />
           <Route path="/pams/add" element={<ManagePam />} />
           <Route path="/pams/edit/:pam_id" element={<ManagePam />} />
-          <Route path = "/cfs" element = {<CFS/>}/>
+          <Route path = "/Registro" element = {<Registro/>}/>
         </Routes>
       </BrowserRouter>
     </div>

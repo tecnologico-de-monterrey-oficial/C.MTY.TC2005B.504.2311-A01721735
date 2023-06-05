@@ -22,6 +22,7 @@ function NavigationBar() {
             <Link className="Link" to="/">Abuelitos</Link>
             <Link className="Link" to="/pams">Personas Adultas Mayores</Link>
             <Link className = "Link" to="/cfs">CFS</Link>
+            <Link className='Link' to='/Registro'>Registro</Link>
           </Nav>
         </Container>
       </Navbar>
