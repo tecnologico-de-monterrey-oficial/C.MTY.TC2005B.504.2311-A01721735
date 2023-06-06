@@ -18,6 +18,7 @@
   padding: 10px; /* Optional: Add padding to create space between the content and the border */
   margin-top: 10px;
   font-size: 40px;
+  text-align: center;
 }
 
 .textUnderButton{

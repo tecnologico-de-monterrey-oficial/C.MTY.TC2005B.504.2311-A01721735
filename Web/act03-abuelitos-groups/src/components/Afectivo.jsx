@@ -10,7 +10,7 @@ function Afectivo() {
 
     const navigate = useNavigate();
 
-    const handleOnClick = () => {
+    const handleOnClickGDS = () => {
         navigate('/GDS');
     }
 
@@ -38,7 +38,7 @@ function Afectivo() {
             <h1 className="text-container">Pruebas</h1>
             <div>
                 
-                <Button onClick={handleOnClick} className="buttonPrueba" variant='secondary' size="lg">
+                <Button onClick={handleOnClickGDS} className="buttonPrueba" variant='secondary' size="lg">
                     <img src="Heart.png" alt="Button Image" className="iconImg"/>
 
                 </Button>

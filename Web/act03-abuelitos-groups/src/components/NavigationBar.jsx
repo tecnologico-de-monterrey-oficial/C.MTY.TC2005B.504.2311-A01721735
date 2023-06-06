@@ -37,11 +37,13 @@ function NavigationBar() {
 
             <NavDropdown title="Mi Perfil" id="basic-nav-dropdown">
          
-              <NavDropdown.Item >Perfil</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to ="/Perfil" >Perfil</NavDropdown.Item>
             
               
               <NavDropdown.Item >Other</NavDropdown.Item>
             </NavDropdown>
+            <Link className="Link" to="/Registro">Registro</Link>
+          
         </Nav>
 
       </Container>

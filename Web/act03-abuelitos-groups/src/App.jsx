@@ -13,6 +13,8 @@ import Social from './components/Social';
 import Cognitiva from './components/Cognitiva';
 import Fisica from './components/Fisica';
 import Perfil from './components/Perfil';
+import Registro from './components/Registro';
+
 
 
 
@@ -34,6 +36,11 @@ function App() {
           <Route path="/Cognitiva" element={<Cognitiva />} />
           <Route path="/Fisica" element={<Fisica />} />
           <Route path="/Perfil" element={<Perfil />} />
+          <Route path="/Registro" element={<Registro />} />
+         
+          
+          
+          
         </Routes>
         <BottomNav />
         
