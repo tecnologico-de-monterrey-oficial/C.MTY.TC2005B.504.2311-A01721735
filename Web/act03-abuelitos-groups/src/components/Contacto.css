@@ -1,0 +1,86 @@
+.Contacto{
+   
+    padding: 10px; /* Optional: Add padding to create space between the content and the border */
+    margin-top: 10px;
+    display: flex;
+  }
+  
+  .Cont1{
+    margin-left: 150px;
+ 
+    padding: 10px;
+    flex: 1;
+  }
+  
+  .Cont2{
+   
+    padding: 10px;
+    flex: 1;
+  }
+  
+  .Cont3{
+  
+    padding: 10px;
+    flex: 1;
+    margin-right: 150px;
+  }
+  
+  
+  .contText{
+    font-size: 16px;
+    text-align: left;
+    margin-left: 70px;
+  }
+
+  .contHead{
+    font-size: 30px;
+    text-align: left;
+    margin-left: 240px;
+  }
+
+  .contText2{
+    font-size: 16px;
+    text-align: left;
+    margin-top: 25px;
+    margin-left: 70px;
+  }
+
+  .contText3{
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .contactForm{
+    text-align: left;
+    color: black;
+    margin-right: 50px;
+  }
+
+  .fadeControl{
+    background: linear-gradient(to right,#EFE3CB,transparent);
+    border: none;
+  }
+
+  .contactEnviarButton{
+    background: #EFE3CB;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+    float: left;
+    font-size: 16px;
+    padding: 15px 100px;
+  }
+
+  .contactEnviarButton:hover{
+    background: #9e9686;
+  }
+
+  .contactEnviarButton:active{
+    background: #9e9686;
+  }
+
+  .containerContacto{
+    
+    margin-top: 150px;
+  }
