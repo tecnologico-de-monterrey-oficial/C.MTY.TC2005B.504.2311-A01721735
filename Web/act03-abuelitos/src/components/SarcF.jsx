@@ -1,4 +1,4 @@
-import './CFS.css';
+import './SarcF.css';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,14 +7,14 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 
 
-function CFS() {
+function SarcF() {
   return (
     <>
     <div className="todo">
     <Table>
      <tr>
         <td>
-            <h1>Prueba de CFS</h1>
+            <h1>Prueba de Sarc-F</h1>
             <h2>Mide y determina el nivel de debilidad muscular. </h2>
             <div className="parrafos">
                 <p>¡Bienvenido a Abuelitos ABP!</p>
@@ -24,7 +24,7 @@ function CFS() {
          </td>
 
         <td>
-         <img className="fotoCFS"
+         <img className="fotoSarcF"
               alt=""
               src="/fisica.png"
               height="260"
@@ -41,11 +41,12 @@ function CFS() {
           <Row>
             <Col>
               <div className="form-container1">
-                <h3 className="form-title1">¿Está usted cansado?</h3>
+                <h3 className="form-title1">¿Que tanta dificultad tiene para llevar o cargar 4-5 kilogramos?</h3>
                 <Form.Select  size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
-                  <option value="1">Sí</option>
-                  <option value="2">No</option>
+                  <option value="1">Ninguna</option>
+                  <option value="2">Alguna</option>
+                  <option value="3">Mucha o incapaz</option>
                 </Form.Select>
               </div>
             </Col>
@@ -54,11 +55,12 @@ function CFS() {
           <Row>
             <Col>
               <div className="form-container1">
-                <h3 className="form-title1">¿Es incapaz de sunir un piso de escaleras?</h3>
+                <h3 className="form-title1">¿Qué tanta dificultad tiene para curzar caminando por un cuarto?</h3>
                 <Form.Select  size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
-                  <option value="1">Sí</option>
-                  <option value="2">No</option>
+                  <option value="1">Ninguna</option>
+                  <option value="2">Alguna</option>
+                  <option value="3">Mucha, usando auxiliares o incapaz</option>
                 </Form.Select>
               </div>
             </Col>
@@ -67,11 +69,12 @@ function CFS() {
           <Row>
             <Col>
               <div className="form-container1">
-                <h3 className="form-title1">¿Es incapaz de caminar una manzana?</h3>
+                <h3 className="form-title1">¿Qué tanta dificultad tiene para levantarse de una silla o cama?</h3>
                 <Form.Select  size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
-                  <option value="1">Sí</option>
-                  <option value="2">No</option>
+                  <option value="1">Ninguna</option>
+                  <option value="2">Alguna</option>
+                  <option value="3">Mucha o incapaz, sin ayuda</option>
                 </Form.Select>
               </div>
             </Col>
@@ -80,11 +83,12 @@ function CFS() {
           <Row>
             <Col>
               <div className="form-container1">
-                <h3 className="form-title1">¿Tienen más de 5 enfermedades?</h3>
+                <h3 className="form-title1">¿Qué tanta dificultad tiene para subir 10 escalones?</h3>
                 <Form.Select  size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
-                  <option value="1">Sí</option>
-                  <option value="2">No</option>
+                  <option value="1">Ninguna</option>
+                  <option value="2">Alguna</option>
+                  <option value="3">Mucha o incapaz</option>
                 </Form.Select>
               </div>
             </Col>
@@ -93,11 +97,12 @@ function CFS() {
           <Row>
             <Col>
               <div className="form-container1">
-                <h3 className="form-title1">¿Ha perdido mas del 5% de su peso en los últimos 6 meses?</h3>
+                <h3 className="form-title1">¿Cuántas veces se ha caído en el último año?</h3>
                 <Form.Select  size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
-                  <option value="1">Sí</option>
-                  <option value="2">No</option>
+                  <option value="1">Ninguna</option>
+                  <option value="2">1 a 3 caídas</option>
+                  <option value="3">4 o más caídas</option>
                 </Form.Select>
               </div>
             </Col>
@@ -111,4 +116,4 @@ function CFS() {
   );
 }
 
-export default CFS;
+export default SarcF;

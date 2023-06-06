@@ -1,25 +1,41 @@
 .NavBar {
-    background-color: #000;
+    background-color: #EFE3CB;
+    height: 60px;
+    
 }
 
 .Link {
-    color: #fdf39a;
+    color: #000000;
     text-decoration: none;
     padding: 0 .5em;
-    opacity: .85;
+    opacity: .95;
+   
 }
 
 .Link:hover {
-    color: #fdf39a;
+    color: #000000;
     opacity: .60;
 }
 
 .Link:visited {
-    color: #fdf39a;
+    color: #000000;
     opacity: .85;
 }
 
 .Link:active {
-    color: #fdf39a;
+    color: #000000;
     opacity: 1;
 }
+
+.navbar .nav-link {
+    color: #000000; 
+    opacity: .90;
+    padding: 0 .5em;
+  }
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: #000000; /* Change the text color on hover/focus */
+}
+
+

@@ -2,7 +2,7 @@ import './Abuelitos.css';
 
 function Abuelitos() {
   return (
-    <div>
+    <div className='abuelitos'>
       <h1>Abuelitos</h1>
     </div>
   );

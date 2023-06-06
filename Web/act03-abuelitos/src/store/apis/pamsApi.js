@@ -17,6 +17,16 @@ const pamsApi = createApi({
           };
         },
       }),
+      fetchPamsGroups: builder.query({
+        providesTags: ["Pams"], // Ahorita vemos de que se trata
+        query: () => {
+          return {
+            url: "/getPamsGroups",
+            params: {},
+            method: "GET",
+          };
+        },
+      }),
       addPam: builder.mutation({
         invalidatesTags: ["Pams"],
         query: (pam) => {
@@ -64,5 +74,5 @@ const pamsApi = createApi({
   },
 });
 
-export const { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } = pamsApi;
+export const { useFetchPamsQuery, useFetchPamsGroupsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } = pamsApi;
 export { pamsApi };

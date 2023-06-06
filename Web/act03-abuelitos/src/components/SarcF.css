@@ -29,22 +29,22 @@
     padding-bottom: 1.25rem;
 }
 
-.parrafos2 {
-    padding-top: 1.25rem;
-    font-family: system-ui;
-    font-size: 2.5rem;
-    padding-bottom: 1.25rem;
-}
-
-.fotoCFS {
+.fotoSarcF{
   height: 100%;
   vertical-align: middle;
   text-align: center;
 }
 
-.fotoCFS img {
+.fotoSarcF img {
   display: inline-block;
   vertical-align: middle;
+}
+
+.parrafos2 {
+    padding-top: 1.25rem;
+    font-family: system-ui;
+    font-size: 2.5rem;
+    padding-bottom: 1.25rem;
 }
 
 .container1 {
@@ -79,6 +79,7 @@
 .todo p:last-child {
     margin-bottom: 0rem; 
   }
+
 
 .form-select {
     background-color: #F3F3F3;

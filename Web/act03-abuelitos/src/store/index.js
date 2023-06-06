@@ -4,17 +4,18 @@ import { pamsApi } from "./apis/pamsApi";
 import { archdioceseApi } from "./apis/archdioceseApi";
 import { deaneryApi } from "./apis/deaneryApi";
 import { zoneApi } from "./apis/zoneApi";
+import { groupApi } from "./apis/groupApi";
 import {
     pamReducer,
-    changePamId,
     changeName,
     changeLastName,
     changeEmail,
     changeBirthDate,
+    changeArchdioceseId,
+    changeZoneId,
     changeArchdiocese,
     changeDeaneryId,
-    changeZoneId,
-    changeArchdioceseId,
+    changeChurchId,
     changePam,
     resetPamValues,
 } from "./slices/pamSlice";
@@ -27,13 +28,15 @@ const store = configureStore({
         [archdioceseApi.reducerPath]: archdioceseApi.reducer,
         [deaneryApi.reducerPath]: deaneryApi.reducer,
         [zoneApi.reducerPath]: zoneApi.reducer,
+        [groupApi.reducerPath]: groupApi.reducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware()
         .concat(pamsApi.middleware)
         .concat(archdioceseApi.middleware)
         .concat(deaneryApi.middleware)
-        .concat(zoneApi.middleware);
+        .concat(zoneApi.middleware)
+        .concat(groupApi.middleware);
     },
 });
 
@@ -41,20 +44,21 @@ setupListeners(store.dispatch);
 
 export { 
     store,
-    changePamId,
     changeName,
     changeLastName,
     changeEmail,
     changeBirthDate,
     changeArchdiocese,
-    changeDeaneryId,
-    changeZoneId,
     changeArchdioceseId,
+    changeZoneId,
+    changeDeaneryId,
+    changeChurchId,
     changePam,
     resetPamValues
- }
+}
 export { 
     useFetchPamsQuery, 
+    useFetchPamsGroupsQuery, 
     useAddPamMutation, 
     useEditPamMutation, 
     useDeletePamMutation 
@@ -68,3 +72,6 @@ export {
 export {
     useFetchZonesQuery
 } from "./apis/zoneApi";
+export {
+    useFetchGroupArchdiocesesQuery, useFetchGroupDataQuery
+} from "./apis/groupApi";

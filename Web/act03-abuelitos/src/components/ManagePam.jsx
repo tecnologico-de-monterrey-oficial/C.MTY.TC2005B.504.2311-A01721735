@@ -7,13 +7,15 @@ import {
   changeEmail,
   changeBirthDate,
   changeArchdiocese,
-  changeDeaneryId,
-  changeZoneId,
   changeArchdioceseId,
+  changeZoneId, 
+  changeDeaneryId,
+  changeChurchId,
   resetPamValues,
   useAddPamMutation,
   useEditPamMutation,
-  useFetchArchdiocesesQuery,
+  useFetchGroupArchdiocesesQuery,
+  useFetchGroupDataQuery,
   useFetchDeaneriesQuery,
   useFetchZonesQuery,
 } from "../store";
@@ -25,42 +27,28 @@ function ManagePam() {
   const [mode, setMode] = useState("add");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { 
-    name, 
-    last_name, 
-    email, 
-    birth_date, 
-    archdiocese, 
-    deanery_id,
-    zone_id,
-    archdiocese_id,  
-  } =
+  const { name, last_name, email, birth_date, archdiocese, archdiocese_id, zone_id, deanery_id, church_id } =
     useSelector((state) => state.pam);
   const [addPam, resultsAdd] = useAddPamMutation();
   const [editPam, resultsEdit] = useEditPamMutation();
+  const dataArchdioceses = useFetchGroupArchdiocesesQuery();
   const [archdioceses, setArchdioceses] = useState([]);
+  const dataZones = useFetchGroupDataQuery(archdiocese_id);
   const [zones, setZones] = useState([]);
-  const dataArchdioceses = useFetchArchdiocesesQuery();
-  const dataZones = useFetchZonesQuery(archdiocese_id);
-  const dataDeaneries = useFetchDeaneriesQuery(zone_id);
+  const dataDeaneries = useFetchGroupDataQuery(zone_id);
   const [deaneries, setDeaneries] = useState([]);
-  const [showSelectArchdiocese, setShowSelectArchdiocese] = useState(false);
-  const [showSelectZone, setShowSelectZone] = useState(false);
-  const [showSelectDeanery, setShowSelectDeanery] = useState(false);
+  const dataChurchs = useFetchGroupDataQuery(deanery_id);
+  const [churchs, setChurchs] = useState([]);
+  const [showArchdiocese, setShowArchdiocese] = useState(false);
+  const [showZone, setShowZone] = useState(false);
+  const [showDeanery, setShowDeanery] = useState(false);
+  const [showChurch, setShowChurch] = useState(false);
 
   useEffect(() => {
-    if (params.pam_id) {
-      setMode("edit");
-      if (archdiocese) {
-        setShowSelectArchdiocese(true);
-        setShowSelectZone(true);
-        setShowSelectDeanery(true);
-      }
-    } else {
-      setMode("add");
+    if (dataDeaneries.data) {
+      setDeaneries(dataDeaneries.data.groupData);
     }
-    
-  }, [params]);
+  }, [dataDeaneries.data]);
 
   useEffect(() => {
     if (dataArchdioceses.data) {
@@ -70,16 +58,30 @@ function ManagePam() {
 
   useEffect(() => {
     if (dataZones.data) {
-      setZones(dataZones.data.zones);
+      setZones(dataZones.data.groupData);
     }
   }, [dataZones.data]);
 
   useEffect(() => {
-    if (dataDeaneries.data) {
-      setDeaneries(dataDeaneries.data.deaneries);
+    if (dataChurchs.data) {
+      setChurchs(dataChurchs.data.groupData);
     }
-  }, [dataDeaneries.data]);
+  }, [dataChurchs.data]);
+      
 
+  useEffect(() => {
+    if (params.pam_id) {
+      setMode("edit");
+      if (archdiocese) {
+        setShowArchdiocese(true);
+        setShowZone(true);
+        setShowDeanery(true);
+        setShowChurch(true);
+      }
+    } else {
+      setMode("add");
+    }
+  }, [params]);
 
   const handleChangeName = (event) => {
     dispatch(changeName(event.target.value));
@@ -96,51 +98,48 @@ function ManagePam() {
   const handleChangeArchdiocese = (event) => {
     if (event.target.checked) {
       dispatch(changeArchdiocese(true));
-      setShowSelectArchdiocese(true);
+      setShowArchdiocese(true);
     } else {
       dispatch(changeArchdiocese(false));
-      setShowSelectArchdiocese(false);
+      setShowArchdiocese(false);
     }
   };
 
   const handleChangeArchdioceseID = (event) => {
-    if (event.target.value) {
-      dispatch(changeArchdioceseId(event.target.value));
-      setShowSelectZone(true);
+    dispatch(changeArchdioceseId(event.target.value));
+    if (event.target.value != 1) {
+      setShowZone(true);
     } else {
-      dispatch(changeArchdioceseId(0));
-      setShowSelectZone(false);
+      setShowZone(false);
+      setShowDeanery(false);
+      setShowChurch(false);
     }
   };
 
   const handleChangeZoneID = (event) => {
-    if (event.target.value) {
-      dispatch(changeZoneId(event.target.value));
-      setShowSelectDeanery(true);
+    dispatch(changeZoneId(event.target.value));
+    if (event.target.value != 1) {
+      setShowDeanery(true);
     } else {
-      dispatch(changeZoneId(0));
-      setShowSelectDeanery(false);
+      setShowDeanery(false);
+      setShowChurch(false);
     }
   };
 
   const handleChangeDeaneryID = (event) => {
-    if (event.target.value) {
-      dispatch(changeDeaneryId(event.target.value));
+    dispatch(changeDeaneryId(event.target.value));
+    if (event.target.value != 1) {
+      setShowChurch(true);
     } else {
-      dispatch(changeDeaneryId(0));
+      setShowDeanery(false);
     }
+
   };
 
-  const isValidate = () => {
-    return (
-      name.length > 0 &&
-      last_name.length > 0 &&
-      email.length > 0 &&
-      birth_date.length > 0 && 
-      (archdiocese && deanery_id > 1 || !archdiocese)
-    );
+  const handleChangeChurchID = (event) => {
+    dispatch(changeChurchId(event.target.value));
+
   };
-      
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -151,7 +150,7 @@ function ManagePam() {
         email: email,
         birth_date: birth_date,
         archdiocese: archdiocese,
-        deanery_id: archdiocese ? deanery_id : 1
+        deanery_id: archdiocese ? church_id : 1
       });
     } else {
       editPam({
@@ -161,7 +160,7 @@ function ManagePam() {
         email: email,
         birth_date: birth_date,
         archdiocese: archdiocese,
-        deanery_id: archdiocese ? deanery_id : 1
+        deanery_id: archdiocese ? church_id : 1
       });
     }
     dispatch(resetPamValues());
@@ -172,8 +171,6 @@ function ManagePam() {
     dispatch(resetPamValues());
     navigate("/pams");
   };
-
-  
 
   return (
     <div className="ManagePam">
@@ -222,59 +219,81 @@ function ManagePam() {
             onChange={handleChangeArchdiocese}
           />
         </Form.Group>
-        {showSelectArchdiocese &&  (
+        {showArchdiocese && (
           <>
-              <Form.Group className="mb-3" controlId="archdiocese_id">
-                <Form.Label>Arquidiócesis</Form.Label>
-                <Form.Select
-                  value={archdiocese_id}
-                  onChange={handleChangeArchdioceseID}
-                >
-                  <option value="">Selecciona una arquidócesis</option>
-                  {archdioceses.map((arch) => {
-                    return (
-                      <option
-                        key={arch.archdiocese_id}
-                        value={arch.archdiocese_id}
-                      >
-                        {arch.name}
-                      </option>
-                    );
-                  })}
-                </Form.Select>
-              </Form.Group>
-              {showSelectZone && (
-                  <Form.Group className="mb-3" controlId="zone_id">
-                    <Form.Label>Zona</Form.Label>
-                    <Form.Select value={zone_id} onChange={handleChangeZoneID}>
-                      <option value="">Selecciona una zona</option>
-                      {zones.map((zone) => {
-                        return (
-                          <option key={zone.zone_id} value={zone.zone_id}>
-                            {zone.name}
-                          </option>
-                        );
-                      })}
-                    </Form.Select>
-                  </Form.Group>
-              )}
-              {showSelectDeanery && (
-                  <Form.Group className="mb-3" controlId="deanery_id">
-                    <Form.Label>Decanato</Form.Label>
-                    <Form.Select value={deanery_id} onChange={handleChangeDeaneryID}>
-                      <option value="">Selecciona una decanato</option>
-                      {deaneries.map((deanery) => {
-                        return (
-                          <option key={deanery.deanery_id} value={deanery.deanery_id}>
-                            {deanery.name}
-                          </option>
-                        );
-                      })}
-                    </Form.Select>
-                  </Form.Group>
-              )}
-            </>
-          )} 
+        <Form.Group className="mb-3" controlId="archdiocese_id">
+          <Form.Label>Arquidiócesis</Form.Label>
+          <Form.Select
+            value={archdiocese_id}
+            onChange={handleChangeArchdioceseID}
+          >
+            <option value={1}>Selecciona una arquidócesis</option>
+            {archdioceses.map((arch) => {
+              return (
+                <option key={arch.pam_group_id} value={arch.pam_group_id}>
+                  {arch.group_name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+        
+        {showZone && (
+        <Form.Group className="mb-3" controlId="zone_id">
+          <Form.Label>Zona</Form.Label>
+          <Form.Select
+            value={zone_id}
+            onChange={handleChangeZoneID}
+          >
+            <option value={1}>Selecciona una zona</option>
+            {zones.map((zone) => {
+              return (
+                <option key={zone.pam_group_id} value={zone.pam_group_id}>
+                  {zone.group_name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+        )}
+        {showDeanery  && (
+        <Form.Group className="mb-3" controlId="deanery_id">
+          <Form.Label>Decanato</Form.Label>
+          <Form.Select
+            value={deanery_id}
+            onChange={handleChangeDeaneryID}
+          >
+            <option value={1}>Selecciona una decanato</option>
+            {deaneries.map((deanery) => {
+              return (
+                <option key={deanery.pam_group_id} value={deanery.pam_group_id}>
+                  {deanery.group_name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+        )}
+        {showChurch  && (
+        <Form.Group className="mb-3" controlId="church_id">
+          <Form.Label>Iglesia/Capilla</Form.Label>
+          <Form.Select
+            value={church_id}
+            onChange={handleChangeChurchID}
+          >
+            <option value={1}>Selecciona una iglesia o capilla</option>
+            {churchs.map((church) => {
+              return (
+                <option key={church.pam_group_id} value={church.pam_group_id}>
+                  {church.group_name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+        )}
+        </>
+        )}
         <div>
           <Button
             className="ManageButtons"
@@ -284,12 +303,7 @@ function ManagePam() {
           >
             {"Cancelar"}
           </Button>
-          <Button 
-          className="ManageButtons" 
-          variant="success" 
-          type="submit"
-          disabled={!isValidate()}
-          >
+          <Button className="ManageButtons" variant="success" type="submit">
             {mode === "add" ? "Agregar" : "Actualizar"}
           </Button>
         </div>

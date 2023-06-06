@@ -17,6 +17,22 @@ class MainController {
       }
     });
   }
+  async getPamsGroups(req, res) {
+    console.log("Get Pams");
+    var sql = `call sp_get_pams_groups()`;
+    mysql.query(sql, (error, data, fields) => {
+      if (error) {
+        res.status(500);
+        res.send(error.message);
+      } else {
+        console.log(data);
+        var pams = data[0];
+        res.json({
+          pams,
+        });
+      }
+    });
+  }
 
   async getPam(req, res) {
     console.log("Get Pam");
@@ -81,13 +97,12 @@ class MainController {
 
   async updatePam(req, res) {
     console.log("Edit Pams RTQ");
-    console.log(req.body);
     if (
       req.params.id != null &&
       req.body.name != null &&
       req.body.last_name != null &&
       req.body.email != null &&
-      req.body.birth_date != null  
+      req.body.birth_date != null 
     ) {
       let pamID = req.params.id;
       let name = req.body.name;
@@ -96,7 +111,7 @@ class MainController {
       let birth_date = req.body.birth_date;
       let archdiocese = req.body.archdiocese;
       let deanery_id = req.body.deanery_id;
-      var sql = `call sp_edit_pam(${pamID},'${name}', '${last_name}', '${email}', '${birth_date}',${archdiocese},${deanery_id});`;
+      var sql = `call sp_edit_pam(${pamID},'${name}', '${last_name}', '${email}', '${birth_date}', ${archdiocese}, ${deanery_id});`;
       mysql.query(sql, (error, data, fields) => {
         if (error) {
           res.status(500);
