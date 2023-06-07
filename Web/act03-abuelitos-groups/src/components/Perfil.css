@@ -1,0 +1,60 @@
+.perfilDiv{
+    display: flex;
+    
+}
+
+
+.profilePic{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.tripeDiv{
+    flex: 1;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.custom-cobtainer{
+    border-radius: 10px;
+    background-color: #EFE3CB;
+    padding: 20px;
+}
+
+.headerPerfil{
+    text-align: left;
+    font-size: 30px;
+}
+
+.textPerfil{
+    text-align: left;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.textPerfil2{
+    text-align: left;
+    font-size: 22px;
+}
+
+.perfilIconImg{
+    width: 60px;
+    height: 60px;
+    margin-top: 15px;
+    
+}
+
+.perfilIconImgE{
+    width: 60px;
+    height: 45px;
+    margin-top: 25px;
+    
+}
+
+.textoNombrePerfil{
+    text-align: left;
+    margin-left: 120px; /* Adjust the spacing above as needed */
+    font-size: 50px;
+}

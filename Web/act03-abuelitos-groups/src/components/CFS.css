@@ -1,0 +1,92 @@
+.todo {
+    margin-top: 1.25rem;
+    margin-left: 6.25rem; 
+    margin-right: 6.25rem;
+    border-radius: 0.625rem;
+    height: 100%;
+}
+
+
+.todo h1, h2, p{
+  text-align: left;
+}
+
+.todo h1 {
+    font-size: 3.75rem;
+    font-family: serif;
+    padding-bottom: 1.25rem ;
+}
+
+.todo h2 {
+    font-family: system-ui;
+    font-size: 2.5rem;
+    padding-bottom: 1.25rem ;
+}
+
+.parrafos {
+    font-family: system-ui;
+    font-size: 1.875rem;
+    padding-bottom: 1.25rem;
+}
+
+.parrafos2 {
+    padding-top: 1.25rem;
+    font-family: system-ui;
+    font-size: 2.5rem;
+    padding-bottom: 1.25rem;
+}
+
+.fotoCFS {
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.fotoCFS img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.container1 {
+    margin-top: 0.625rem;;
+    background-color: #EFE3CB;
+    border-radius: 1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 0.625rem;;
+    margin-left: 7.5rem;
+    margin-right: 7.5rem;
+  }
+
+.form-container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 2rem;;
+  }
+  
+.form-title1 {
+    text-align: left;
+    margin-bottom: 0.625rem;;
+    margin-left: 10%;
+    align-self: flex-start;
+}
+
+.todo p {
+    margin-bottom: 0.313rem; 
+  }
+  
+.todo p:last-child {
+    margin-bottom: 0rem; 
+  }
+
+.form-selectCFS {
+    background-color: #F3F3F3;
+    width: 80%;
+}
+
+.button {
+    background-color: #F3F3F3;
+    color: black;
+    margin-bottom: 1.25rem;
+}
