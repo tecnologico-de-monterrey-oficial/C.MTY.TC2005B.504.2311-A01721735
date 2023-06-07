@@ -100,7 +100,7 @@ function GDS() {
         </tbody>
       </Table>
   
-      <Container>
+      <Container className = 'containerGDS'>
         <Table bordered className="custom-table">
           <tbody>{renderRows()}</tbody>
           

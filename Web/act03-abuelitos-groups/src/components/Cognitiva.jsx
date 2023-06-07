@@ -1,11 +1,14 @@
 import './Cognitiva.css'
 import Contacto from './Contacto';
 import Button from 'react-bootstrap/Button';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function Cognitiva() {
 
+    const navigate = useNavigate();
+    const handleOnClickMMSE = () => navigate('/MMSE');
+    const handleOnClickReloj = () => navigate('/Reloj');
     return (
         <>
             <div className="containerPrueba">
@@ -33,7 +36,7 @@ function Cognitiva() {
                 
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="braintransparent.png" alt="Button Image" className="iconImg"/>
+                    <img src="braintransparent.png" alt="Button Image" className="iconImg" onClick ={handleOnClickMMSE}/>
 
                 </Button>
                 
@@ -42,7 +45,7 @@ function Cognitiva() {
                 </div>
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="clock.png" alt="Button Image" className="clockImg"/>
+                    <img src="clock.png" alt="Button Image" className="clockImg" onClick ={handleOnClickReloj}/>
 
                 </Button>
                 

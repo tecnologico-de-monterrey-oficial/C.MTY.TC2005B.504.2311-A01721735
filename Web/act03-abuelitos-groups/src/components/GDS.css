@@ -1,3 +1,4 @@
+
 .todoGDS {
     margin-top: 1.25rem;
     margin-left: 6.25rem;
@@ -62,7 +63,7 @@
 
 }  
 
-.container {
+.containerGDS {
     display: flex;
     justify-content: center;
     align-items: center;

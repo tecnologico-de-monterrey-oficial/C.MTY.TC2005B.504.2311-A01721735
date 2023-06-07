@@ -1,10 +1,19 @@
 import './Funcional.css';
 import Contacto from './Contacto';
 import Button from 'react-bootstrap/Button';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function Funcional() {
+
+    const navigate = useNavigate();
+    const handleOnClickLawton = () => {
+        navigate('/LWB');
+    }
+
+    const handleOnClickKatz = () => {
+        navigate('/Katz');
+    }
 
     return (
         <>
@@ -34,7 +43,7 @@ function Funcional() {
                 
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="braintransparent.png" alt="Button Image" className="iconImg"/>
+                    <img src="braintransparent.png" alt="Button Image" className="iconImg" onClick = {handleOnClickLawton}/>
 
                 </Button>
                 
@@ -43,7 +52,7 @@ function Funcional() {
                 </div>
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="braintransparent.png" alt="Button Image" className="iconImg"/>
+                    <img src="braintransparent.png" alt="Button Image" className="iconImg" onClick = {handleOnClickKatz}/>
 
                 </Button>
                 

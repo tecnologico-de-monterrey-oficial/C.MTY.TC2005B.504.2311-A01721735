@@ -39,7 +39,7 @@ function Registro() {
                 <Col md={6}>
                   <Form.Group controlId='formSexo'>
                     <Form.Label className='form-label'>Sexo</Form.Label>
-                    <Form.Select placeholder='Seleccione una opción'>
+                    <Form.Select className = 'form-selectRegistro' placeholder='Seleccione una opción'>
                       <option value='' disabled selected>Seleccione una opción</option>
                       <option>Masculino</option>
                       <option>Femenino</option>
@@ -65,7 +65,7 @@ function Registro() {
 
               <Form.Group controlId='formEscolaridad'>
                 <Form.Label className='form-label'>Escolaridad</Form.Label>
-                <Form.Select placeholder='Selecciona Escolaridad'>
+                <Form.Select className = 'form-selectRegistro' placeholder='Selecciona Escolaridad'>
                   <option value='' disabled selected>Selecciona Escolaridad..</option>
                   <option>Escolaridad 1</option>
                   <option>Escolaridad 2</option>
@@ -80,7 +80,7 @@ function Registro() {
             <Col md={5}>
               <Form.Group controlId='formPais'>
                 <Form.Label>Pais</Form.Label>
-                <Form.Select placeholder='Seleccione una opción'>
+                <Form.Select className = 'form-selectRegistro' placeholder='Seleccione una opción'>
                   <option value='' disabled selected>Seleccione una opción</option>
                   <option>Pais 1</option>
                   <option>Pais 2</option>
@@ -89,7 +89,7 @@ function Registro() {
 
               <Form.Group controlId='formEstado'>
                 <Form.Label>Estado</Form.Label>
-                <Form.Select placeholder='Seleccione una opción'>
+                <Form.Select className = 'form-selectRegistro' placeholder='Seleccione una opción'>
                   <option value='' disabled selected>Seleccione una opción</option>
                   <option>Estado 1</option>
                   <option>Estado 2</option>
@@ -98,7 +98,7 @@ function Registro() {
 
               <Form.Group controlId='formCiudad'>
                 <Form.Label>Ciudad</Form.Label>
-                <Form.Select placeholder='Seleccione una opción'>
+                <Form.Select className = 'form-selectRegistro' placeholder='Seleccione una opción'>
                   <option value='' disabled selected>Seleccione una opción</option>
                   <option>Ciudad 1</option>
                   <option>Ciudad 2</option>

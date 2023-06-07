@@ -42,7 +42,7 @@ function SarcF() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Que tanta dificultad tiene para llevar o cargar 4-5 kilogramos?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className = 'form-selectSarcF' size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Ninguna</option>
                   <option value="2">Alguna</option>
@@ -56,7 +56,7 @@ function SarcF() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Qué tanta dificultad tiene para curzar caminando por un cuarto?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className = 'form-selectSarcF'  size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Ninguna</option>
                   <option value="2">Alguna</option>
@@ -70,7 +70,7 @@ function SarcF() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Qué tanta dificultad tiene para levantarse de una silla o cama?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className = 'form-selectSarcF' size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Ninguna</option>
                   <option value="2">Alguna</option>
@@ -84,7 +84,7 @@ function SarcF() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Qué tanta dificultad tiene para subir 10 escalones?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className = 'form-selectSarcF' size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Ninguna</option>
                   <option value="2">Alguna</option>
@@ -98,7 +98,7 @@ function SarcF() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Cuántas veces se ha caído en el último año?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className = 'form-selectSarcF' size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Ninguna</option>
                   <option value="2">1 a 3 caídas</option>
