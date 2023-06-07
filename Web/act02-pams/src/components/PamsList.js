@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { removePam, changeName, changeLastName, changeEmail, changeBirthDate } from "../store";
+import Table from 'react-bootstrap/Table';
 
 import "./PamsList.css";
 
@@ -27,39 +28,43 @@ function PamsList() {
     <>
       <div className="PamsList">
         <h2>Listado de Personas Adultas Mayores</h2>
-        <Container>
-          <Row className="align-items-center">
-            <Col sm={2}>
+        <Table striped bordered hover>
+          <thead>
+          <tr className="align-items-center">
+            <th>
               <h3>Nombre</h3>
-            </Col>
-            <Col sm={2}>
+            </th>
+            <th>
               <h3>Apellido</h3>
-            </Col>
-            <Col sm={2}>
+              </th>
+            <th>
               <h3>Correo</h3>
-            </Col>
-            <Col sm={2}>
+              </th>
+            <th>
               <h3>Fecha de Nacimiento</h3>
-            </Col>
-            <Col sm={4}>
+              </th>
+            <th>
             <Link to="add">
-              <Button variant="success">Agregar</Button>
+              <Button className = "custom-button" variant="success">Agregar</Button>
               </Link>
-            </Col>
-          </Row>
+              </th>
+          </tr>
+          </thead>
+          <tbody>
           {pams.map((pam, index) => (
-            <Row key={pam.id}>
-              <Col>{pam.name}</Col>
-              <Col>{pam.last_name}</Col>
-              <Col>{pam.email}</Col>
-              <Col>{pam.birth_date}</Col>
-              <Col>
+            <tr key={pam.id}>
+              <td>{pam.name}</td>
+              <td>{pam.last_name}</td>
+              <td>{pam.email}</td>
+              <td>{pam.birth_date}</td>
+              <td>
                 <Button variant="warning" onClick={() => {handleEditPam(index)}}>Editar</Button>
                 <Button variant="danger" onClick={() => {handleRemovePam(pam.id)}}>Eliminar</Button>
-              </Col>
-            </Row>
+              </td>
+            </tr>
           ))}
-        </Container>
+          </tbody>
+        </Table>
       </div>
     </>
   );

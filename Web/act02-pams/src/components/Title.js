@@ -2,8 +2,12 @@ import './Title.css'
 
 function Title() {
     return (
+  
       <div className="Title">
-        <h1>Abuelitos ABP</h1>
+        <br></br>
+        <h1>Nuevo Horizonte</h1>
+        
+        
       </div>
     );
   }

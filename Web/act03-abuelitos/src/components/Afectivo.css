@@ -1,0 +1,28 @@
+
+
+.buttonPrueba{
+    margin-top: 100px;
+    width: 500px;
+    height: 600px;
+}
+
+
+
+.iconImg{
+    width: 150px;
+    height: 150px;
+}
+
+.headerUnderButton{
+ 
+  padding: 10px; /* Optional: Add padding to create space between the content and the border */
+  margin-top: 10px;
+  font-size: 40px;
+}
+
+.textUnderButton{
+  
+  padding: 10px; /* Optional: Add padding to create space between the content and the border */
+  
+  font-size: 16px;
+}

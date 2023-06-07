@@ -1,5 +1,11 @@
 .AbuelitosABP {
-    /* background-color: #fdf39a; */
+   background-color: black;
     height: 100vh;
     width: 100vw;
+}
+
+.AbuelitosABP h1 {
+    color: black;
+    font-size: 80px;
+    text-align: center;
 }

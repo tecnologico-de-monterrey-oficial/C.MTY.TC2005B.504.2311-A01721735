@@ -1,16 +1,18 @@
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-
+import ProgressBar from "react-bootstrap/ProgressBar";
+import './ManagePam.css'
 function Forms2(){
     const navigate = useNavigate();
     return(
         <>
         <div class = "vertical-center">
             <Form className ="form-info" align = "center" >
+                <h1>Informacion de Direccion</h1>
                 <Row className="mb-3">
 
                 <Form.Group as={Col} controlId="formPais">
-                <Form.Label>Pais</Form.Label>
+                <Form.Label>Pais<span className="customAsterisk">*</span></Form.Label>
                 <Form.Control 
                 type="text" 
                 placeholder="Teclea Pais"
@@ -18,7 +20,7 @@ function Forms2(){
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formEstado">
-                <Form.Label>Estado</Form.Label>
+                <Form.Label>Estado<span className="customAsterisk">*</span></Form.Label>
                 <Form.Control 
                 type="text" 
                 placeholder="Teclea Estado"
@@ -53,7 +55,7 @@ function Forms2(){
                 </Form.Group>
                 
                 <Form.Group as={Col} controlId="formCodigoPostal">
-                <Form.Label>Codigo Postal</Form.Label>
+                <Form.Label>Codigo Postal<span className="customAsterisk">*</span></Form.Label>
                 <Form.Control
                 type="number"
                 placeholder="Teclea Codigo Postal"
@@ -66,6 +68,10 @@ function Forms2(){
 
 
                 <div>
+                    
+                <div className="mb-3">
+          <ProgressBar striped variant = "success" animated now = {47}  />
+          </div>
 
                 <Button variant="primary" type="submit" onClick={() => navigate(`/pams/add`)}>
                     Regresar

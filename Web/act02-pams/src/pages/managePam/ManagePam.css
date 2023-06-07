@@ -1,11 +1,10 @@
 .ManagePam {
-    /* display: flex; */
-    margin: 0 6rem;
+    display: flex;
+    margin-top: 40px;
     justify-content: center;
 }
 
 .form-control{
-    
     width: 100%;
 }
 
@@ -13,34 +12,51 @@
     font-size: 1rem;
     font-weight: bold;
     color: #000000;
+    font-family: 'Quicksand';
 }
 
 .form-info{
     max-width: 1200px;
     margin: 0 auto ;
-    padding: 2rem;
+    padding: 4rem;
     border: 1px solid #000000;
     border-radius: 1rem;
     box-shadow: 0 0 10px #000000;
-    background-color: rgb(141, 136, 95);
+    background-color: white;
+    font-family: 'Quicksand';
     
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 .my-form{
     max-width: 1000px;
     margin: 0 auto ;
     align-items: center;
-    
-
-    
+    font-family: 'Quicksand';
 }
 
 .vertical-center {
-  
     top: 50%;
     -ms-transform: translateY(10%);
-    transform: translateY(10%);
-    
+    transform: translateY(10%);  
 }
 
+.custom-button {
+    font-family: 'Segoe UI';
+  }
 
+.required {
+    color: red;
+    margin-left: 5px;
+  }
+
+  .customAsterisk {
+    color: red;
+    font-size: 1.5em;
+    line-height: 0.8em;
+  }

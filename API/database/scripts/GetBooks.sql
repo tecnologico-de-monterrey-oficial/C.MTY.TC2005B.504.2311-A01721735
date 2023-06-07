@@ -1,0 +1,8 @@
+DELIMITER //
+
+CREATE PROCEDURE sp_get_books()
+BEGIN
+    SELECT * FROM book;
+END// 
+
+DELIMITER ;

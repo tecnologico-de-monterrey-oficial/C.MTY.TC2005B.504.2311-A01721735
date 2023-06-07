@@ -1,0 +1,16 @@
+.form-informacion2{
+    max-width: 500px;
+    margin: 0 auto ;
+    padding: 4rem;
+    border: 1px solid #000000;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px #000000;
+    background-color: white;
+    font-family: 'Quicksand';
+    
+}
+
+.required {
+    color: red;
+    margin-left: 5px;
+  }
