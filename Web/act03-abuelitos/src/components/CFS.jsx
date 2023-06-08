@@ -42,7 +42,7 @@ function CFS() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Está usted cansado?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className ='form-selectCFS' size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Sí</option>
                   <option value="2">No</option>
@@ -55,7 +55,7 @@ function CFS() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Es incapaz de sunir un piso de escaleras?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className ='form-selectCFS' size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Sí</option>
                   <option value="2">No</option>
@@ -68,7 +68,7 @@ function CFS() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Es incapaz de caminar una manzana?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className ='form-selectCFS' size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Sí</option>
                   <option value="2">No</option>
@@ -81,7 +81,7 @@ function CFS() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Tienen más de 5 enfermedades?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className ='form-selectCFS' size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Sí</option>
                   <option value="2">No</option>
@@ -94,7 +94,7 @@ function CFS() {
             <Col>
               <div className="form-container1">
                 <h3 className="form-title1">¿Ha perdido mas del 5% de su peso en los últimos 6 meses?</h3>
-                <Form.Select  size="lg" aria-label="Default select example">
+                <Form.Select className ='form-selectCFS' size="lg" aria-label="Default select example">
                   <option>Seleccione una opción</option>
                   <option value="1">Sí</option>
                   <option value="2">No</option>

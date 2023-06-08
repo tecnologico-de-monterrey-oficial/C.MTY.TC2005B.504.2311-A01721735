@@ -1,10 +1,18 @@
 import './Fisica.css'
 import Contacto from './Contacto';
 import Button from 'react-bootstrap/Button';
-
-
+import { useNavigate } from 'react-router-dom';
 
 function Fisica() {
+
+    const navigate = useNavigate();
+    const handleOnClickSarcF = () => navigate('/SarcF');
+    const handleOnClickSPPB = () => navigate('/SPPB');
+    const handleOnClickCircPantorilla = () => navigate('/CircPantorilla');
+    const handleOnClickUpAndGo = () => navigate('/UpAndGo');
+    const handleOnClickCFS = () => navigate('/CFS');
+    const handleOnClickFuerza= () => navigate('/ChairStand');
+   
 
     return (
         <>
@@ -33,7 +41,7 @@ function Fisica() {
                 
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="testt.png" alt="Button Image" className="iconImg"/>
+                    <img src="testt.png" alt="Button Image" className="iconImg" onClick = {handleOnClickSarcF}/>
 
                 </Button>
                 
@@ -42,7 +50,7 @@ function Fisica() {
                 </div>
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="perf.png" alt="Button Image" className="perfImg"/>
+                    <img src="perf.png" alt="Button Image" className="perfImg" onClick = {handleOnClickSPPB}/>
 
                 </Button>
                 
@@ -51,7 +59,7 @@ function Fisica() {
                 </div>
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="measure.png" alt="Button Image" className="clockImg"/>
+                    <img src="measure.png" alt="Button Image" className="clockImg" onClick = {handleOnClickCircPantorilla}/>
 
                 </Button>
                 
@@ -66,7 +74,7 @@ function Fisica() {
                 
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="chair.png" alt="Button Image" className="iconImg"/>
+                    <img src="chair.png" alt="Button Image" className="iconImg" onClick = {handleOnClickUpAndGo}/>
 
                 </Button>
                 
@@ -75,7 +83,7 @@ function Fisica() {
                 </div>
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="bone.png" alt="Button Image" className="clockImg"/>
+                    <img src="bone.png" alt="Button Image" className="clockImg" onClick = {handleOnClickCFS}/>
 
                 </Button>
                 
@@ -84,7 +92,7 @@ function Fisica() {
                 </div>
                 <div className="buttonDivs">
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="strength.png" alt="Button Image" className="clockImg"/>
+                    <img src="strength.png" alt="Button Image" className="clockImg" onClick = {handleOnClickCFS}/>
 
                 </Button>
                 

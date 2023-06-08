@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const pamSlice = createSlice({
     name: 'pam',
     initialState: {
-        name: '',
+        first_name: '',
         last_name: '',
         email: '',
         birth_date: '',
@@ -15,7 +15,7 @@ const pamSlice = createSlice({
     },
     reducers: {
         changeName(state, action) {
-            state.name = action.payload;
+            state.first_name = action.payload;
         },
         changeLastName(state, action) {
             state.last_name = action.payload;
@@ -42,7 +42,7 @@ const pamSlice = createSlice({
             state.church_id = action.payload;
         },
         changePam(state, action) {
-            state.name = action.payload.name;
+            state.first_name = action.payload.name;
             state.last_name = action.payload.last_name;
             state.email = action.payload.email;
             state.birth_date = action.payload.birth_date;
@@ -53,7 +53,7 @@ const pamSlice = createSlice({
             state.church_id = action.payload.church_id;
         },
         resetPamValues(state, action) {
-            state.name = '';
+            state.first_name = '';
             state.last_name = '';
             state.email = '';
             state.birth_date = '';

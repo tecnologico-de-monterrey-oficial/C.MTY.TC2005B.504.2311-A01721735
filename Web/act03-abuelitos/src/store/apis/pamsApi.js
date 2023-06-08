@@ -34,7 +34,7 @@ const pamsApi = createApi({
             method: 'POST',
             url: '/addPam',
             body: {
-              name: pam.name,
+              first_name: pam.first_name,
               last_name: pam.last_name,
               email: pam.email,
               birth_date: pam.birth_date,
@@ -51,7 +51,7 @@ const pamsApi = createApi({
             method: 'PUT',
             url: `/updatePam/${pam.pam_id}`,
             body: {
-              name: pam.name,
+              first_name: pam.first_name,
               last_name: pam.last_name,
               email: pam.email,
               birth_date: pam.birth_date,

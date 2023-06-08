@@ -59,7 +59,7 @@ function PersonasAdultasMayores() {
             {!isFetching &&
               data.pams.map((pam) => (
                 <tr className="PamsDetail" key={pam.pam_id}>
-                  <td>{pam.name}</td>
+                  <td>{pam.first_name}</td>
                   <td>{pam.last_name}</td>
                   <td>{pam.email}</td>
                   <td>{pam.birth_date}</td>
@@ -69,7 +69,7 @@ function PersonasAdultasMayores() {
                     onClick={() => {handleEdit(
                       {
                         pam_id: pam.pam_id,
-                        name: pam.name,
+                        first_name: pam.first_name,
                         last_name: pam.last_name,
                         email: pam.email,
                         birth_date: pam.birth_date,

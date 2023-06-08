@@ -1,3 +1,14 @@
+.custom-table{
+  margin-top: 2em;
+  border-color: black;
+  border-style: solid;
+  background-color: #EFE3CB;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 75%
+}
+
 .todoGDS {
     margin-top: 1.25rem;
     margin-left: 6.25rem;
@@ -31,6 +42,12 @@
     vertical-align: middle;
     text-align: center;
   }
+
+  .contGDS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   .fotoGDS img {
     display: inline-block;
@@ -62,7 +79,7 @@
 
 }  
 
-.container {
+.containerGDS {
     display: flex;
     justify-content: center;
     align-items: center;

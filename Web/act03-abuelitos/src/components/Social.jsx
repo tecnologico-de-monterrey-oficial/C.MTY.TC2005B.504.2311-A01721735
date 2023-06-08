@@ -1,10 +1,15 @@
 import './Social.css'
 import Contacto from './Contacto';
 import Button from 'react-bootstrap/Button';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function Social() {
+
+    const navigate = useNavigate();
+    const handleOnClickGijon = () => {
+        navigate('/Gijon');
+    }
 
     return (
         <>
@@ -31,7 +36,7 @@ function Social() {
             <div>
                 
                 <Button className="buttonPrueba" variant='secondary' size="lg">
-                    <img src="socialimg.png" alt="Button Image" className="iconImg"/>
+                    <img src="socialimg.png" alt="Button Image" className="iconImg" onClick = {handleOnClickGijon}/>
 
                 </Button>
                 
