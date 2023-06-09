@@ -1,0 +1,107 @@
+.custom-table{
+  margin-top: 2em;
+  border-color: black;
+  border-style: solid;
+  background-color: #EFE3CB;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 75%
+}
+
+.todoGDS {
+    margin-top: 1.25rem;
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+    border-radius: 0.625rem;
+    height: 100%;
+  }
+  
+  .todoGDS h1,
+  .todoGDS h2,
+  .parrafosGDS,
+  .parrafosGDS2,
+  .todoGDS p {
+    text-align: left;
+  }
+  
+  .todoGDS h1 {
+    font-size: 3.75rem;
+    font-family: serif;
+    padding-bottom: 1.25rem;
+  }
+  
+  .todoGDS h2 {
+    font-family: system-ui;
+    font-size: 2.5rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .fotoGDS{
+    
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .contGDS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fotoGDS img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .parrafosGDS {
+    font-family: system-ui;
+    font-size: 1.875rem;
+    padding-bottom: 1.25rem;
+  }
+  
+  .parrafosGDS2 {
+    padding-top: 1.25rem;
+    font-family: system-ui;
+    font-size: 2.5rem;
+    padding-bottom: 1.25rem;
+  }
+  
+  .custom-table {
+    margin-top: 2em;
+    border-color: black;
+    border-style: solid;
+    background-color: #EFE3CB;
+    border-radius: 10px;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%
+
+}  
+
+.containerGDS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 25px;
+}
+
+.buttons {
+    width: 70px;
+    justify-content: center;
+    background-color: #f1e0bc;
+    color: black;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    display: flex;
+    border-color: black;
+    margin: auto;
+}
+  
