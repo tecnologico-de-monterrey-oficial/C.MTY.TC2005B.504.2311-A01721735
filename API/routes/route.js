@@ -18,3 +18,4 @@ router.get('/api/getGroupData/:id', groupController.getGroupData);
 router.get('/api/getZones/:id', zoneController.getZones);
 router.get('/api/getdeaneries/:id', deaneryController.getDeaneries);
 module.exports = router;
+
