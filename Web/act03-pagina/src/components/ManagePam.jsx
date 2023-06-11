@@ -5,23 +5,23 @@ import {
   changeName, 
     changeLastName, 
     changeGenderId,
-    changeEmail, 
-    changeBirthDate, 
-    changeBelongsToArchdiocese,
     changeRoleId,
     changePhone,
+    changeEmail,
     changeCountry,
     changeState,
     changeCity,
     changeAddress1,
     changeAddress2,
     changeZipCode,
+    changeBirthDate,
     changeDeceasedDate,
     changeGuardianId,
     changeDoctorId,
+    changeBelongsToArchdiocese,
     changePamGroupId,
     changePam, 
-    resetPamValues,
+    resetPamValues ,
   useAddPamMutation,
   useEditPamMutation,
   useFetchGroupArchdiocesesQuery,
@@ -37,13 +37,13 @@ function ManagePam() {
   const [mode, setMode] = useState("add");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { first_name, last_name,gender_id, email, birth_date, role_id, belongs_to_archdiocese, phone, country,state,city,address_1,address_2,zip_code,deceased_date,guardian_id,doctor_id,pam_group } =
+  const { name, last_name, email, birth_date, archdiocese, archdiocese_id, zone_id, deanery_id, church_id } =
     useSelector((state) => state.pam);
   const [addPam, resultsAdd] = useAddPamMutation();
   const [editPam, resultsEdit] = useEditPamMutation();
   const dataArchdioceses = useFetchGroupArchdiocesesQuery();
   const [archdioceses, setArchdioceses] = useState([]);
-  const dataZones = useFetchGroupDataQuery();
+  const dataZones = useFetchGroupDataQuery(archdiocese_id);
   const [zones, setZones] = useState([]);
   const dataDeaneries = useFetchGroupDataQuery(zone_id);
   const [deaneries, setDeaneries] = useState([]);
@@ -221,14 +221,7 @@ function ManagePam() {
             onChange={handleChangeBirthDate}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="archdiocese">
-          <Form.Label>¿Perteneces a una arquidiócesis?</Form.Label>
-          <Form.Check
-            type="switch"
-            checked={archdiocese}
-            onChange={handleChangeArchdiocese}
-          />
-        </Form.Group>
+        
         {showArchdiocese && (
           <>
         <Form.Group className="mb-3" controlId="archdiocese_id">

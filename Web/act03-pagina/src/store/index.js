@@ -6,27 +6,27 @@ import { deaneryApi } from "./apis/deaneryApi";
 import { zoneApi } from "./apis/zoneApi";
 import { groupApi } from "./apis/groupApi";
 import {
+    pamReducer,
     changeName, 
     changeLastName, 
     changeGenderId,
-    changeEmail, 
-    changeBirthDate, 
-    changeBelongsToArchdiocese,
     changeRoleId,
     changePhone,
+    changeEmail,
     changeCountry,
     changeState,
     changeCity,
     changeAddress1,
     changeAddress2,
     changeZipCode,
+    changeBirthDate,
     changeDeceasedDate,
     changeGuardianId,
     changeDoctorId,
+    changeBelongsToArchdiocese,
     changePamGroupId,
     changePam, 
-    resetPamValues,
-    pamReducer
+    resetPamValues 
 } from "./slices/pamSlice";
 
 
@@ -56,20 +56,20 @@ export {
     changeName, 
     changeLastName, 
     changeGenderId,
-    changeEmail, 
-    changeBirthDate, 
-    changeBelongsToArchdiocese,
     changeRoleId,
     changePhone,
+    changeEmail,
     changeCountry,
     changeState,
     changeCity,
     changeAddress1,
     changeAddress2,
     changeZipCode,
+    changeBirthDate,
     changeDeceasedDate,
     changeGuardianId,
     changeDoctorId,
+    changeBelongsToArchdiocese,
     changePamGroupId,
     changePam, 
     resetPamValues 

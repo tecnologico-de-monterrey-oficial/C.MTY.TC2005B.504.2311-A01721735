@@ -3,7 +3,7 @@ const mysql = require("../database/db");
 class MainController {
   async getArchdioceses(req, res) {
     console.log("Get archdioceses");
-    var sql = `call sp_get_archdioceses()`;
+    var sql = `call sp_get_group_archdioceses()`;
     mysql.query(sql, (error, data, fields) => {
       if (error) {
         res.status(500);

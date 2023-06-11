@@ -1,0 +1,103 @@
+.todoGDS {
+    margin-top: 1.25rem;
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+    border-radius: 0.625rem;
+    height: 100%;
+  }
+  
+  .todoGDS h1,
+  .todoGDS h2,
+  .parrafosGDS,
+  .parrafosGDS2,
+  .todoGDS p {
+    text-align: left;
+  }
+
+  .fotoLWB {
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  .fotoLWB img {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .todoGDS h1 {
+    font-size: 3.75rem;
+    font-family: serif;
+    padding-bottom: 1.25rem;
+  }
+  
+  .todoGDS h2 {
+    font-family: system-ui;
+    font-size: 2.5rem;
+    padding-bottom: 1.25rem;
+  }
+  
+  .parrafosGDS {
+    font-family: system-ui;
+    font-size: 1.875rem;
+    padding-bottom: 1.25rem;
+  }
+  
+  .parrafosGDS2 {
+    padding-top: 1.25rem;
+    font-family: system-ui;
+    font-size: 2.5rem;
+    padding-bottom: 1.25rem;
+  }
+  
+  .tableGDS {
+    width: 100%;
+    table-layout: fixed; 
+  }
+  
+  .tablaGDS {
+    width: 50%;
+    align-items: left;
+    box-sizing: border-box;
+  }
+  
+  .containerGDS {
+    margin-top: 0.625rem;
+    background-color: #efe3cb;
+    border-radius: 1.25rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  
+  .form-containerGDS {
+    margin-bottom: 0.625rem;
+  }
+  
+  .form-titleGDS1 {
+    text-align: left;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .todoGDS p {
+    margin-bottom: 0.313rem;
+  }
+  
+  .todoGDS p:last-child {
+    margin-bottom: 0rem;
+  }
+  
+  .form-selectGDS {
+    background-color: #f3f3f3;
+    width: 90%;
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .button {
+    background-color: #f3f3f3;
+    color: black;
+    border: 2px solid #f3f3f3;
+  }

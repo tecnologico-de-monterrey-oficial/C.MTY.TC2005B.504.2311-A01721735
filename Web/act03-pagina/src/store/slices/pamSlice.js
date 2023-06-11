@@ -5,24 +5,22 @@ const pamSlice = createSlice({
     initialState: {
         first_name: '',
         last_name: '',
-        gender_id: 0,
-        email: '',
-        birth_date: '',
+        gender_id: 1,
         role_id: 1,
-        belongs_to_archdiocese: false,
         phone: '',
+        email: '',
         country: 'Mexico',
         state: '',
         city: '',
         address_1: '',
         address_2: '',
-        zip_code: 0,
-        deceased_date: '',
+        zip_code: '',
+        birth_date: '',
+        deceased_date: '1000-01-01',
         guardian_id: 0,
         doctor_id: 0,
-        pam_group_id: 0,
-
-    
+        belongs_to_archdiocese: 0,
+        pam_group_id: 0
     },
     reducers: {
         changeName(state, action) {
@@ -34,15 +32,14 @@ const pamSlice = createSlice({
         changeGenderId(state, action) {
             state.gender_id = action.payload;
         },
-
-        changeEmail(state, action) {
-            state.email = action.payload;
-        },
         changeRoleId(state, action) {
             state.role_id = action.payload;
         },
         changePhone(state, action) {
             state.phone = action.payload;
+        },
+        changeEmail(state, action) {
+            state.email = action.payload;
         },
         changeCountry(state, action) {
             state.country = action.payload;
@@ -62,6 +59,9 @@ const pamSlice = createSlice({
         changeZipCode(state, action) {
             state.zip_code = action.payload;
         },
+        changeBirthDate(state, action) {
+            state.birth_date = action.payload;
+        },
         changeDeceasedDate(state, action) {
             state.deceased_date = action.payload;
         },
@@ -71,57 +71,52 @@ const pamSlice = createSlice({
         changeDoctorId(state, action) {
             state.doctor_id = action.payload;
         },
-        changePamGroupId(state, action) {
-            state.pam_group_id = action.payload;
-        },
-        
-        changeBirthDate(state, action) {
-            state.birth_date = action.payload;
-        },
         changeBelongsToArchdiocese(state, action) {
             state.belongs_to_archdiocese = action.payload;
         },
-       
+        changePamGroupId(state, action) {
+            state.pam_group_id = action.payload;
+        },
         changePam(state, action) {
-            state.first_name = action.payload.name;
+            state.first_name = action.payload.first_name;
             state.last_name = action.payload.last_name;
             state.gender_id = action.payload.gender_id;
-            state.email = action.payload.email;
-            state.birth_date = action.payload.birth_date;
             state.role_id = action.payload.role_id;
-            state.belongs_to_archdiocese = action.payload.belongs_to_archdiocese;
             state.phone = action.payload.phone;
+            state.email = action.payload.email;
             state.country = action.payload.country;
             state.state = action.payload.state;
             state.city = action.payload.city;
             state.address_1 = action.payload.address_1;
             state.address_2 = action.payload.address_2;
             state.zip_code = action.payload.zip_code;
+            state.birth_date = action.payload.birth_date;
             state.deceased_date = action.payload.deceased_date;
             state.guardian_id = action.payload.guardian_id;
             state.doctor_id = action.payload.doctor_id;
+            state.belongs_to_archdiocese = action.payload.belongs_to_archdiocese;
             state.pam_group_id = action.payload.pam_group_id;
-            
+
+           
         },
-        
         resetPamValues(state, action) {
             state.first_name = '';
             state.last_name = '';
-            state.gender_id = 0;
-            state.email = '';
-            state.birth_date = '';
+            state.gender_id = 1;
             state.role_id = 1;
-            state.belongs_to_archdiocese = false;
             state.phone = '';
+            state.email = '';
             state.country = 'Mexico';
             state.state = '';
             state.city = '';
             state.address_1 = '';
             state.address_2 = '';
-            state.zip_code = 0;
-            state.deceased_date = '';
+            state.zip_code = '';
+            state.birth_date = '';
+            state.deceased_date = '1000-01-01',
             state.guardian_id = 0;
             state.doctor_id = 0;
+            state.belongs_to_archdiocese = 0;
             state.pam_group_id = 0;
 
         }
@@ -132,20 +127,20 @@ export const {
     changeName, 
     changeLastName, 
     changeGenderId,
-    changeEmail, 
-    changeBirthDate, 
-    changeBelongsToArchdiocese,
     changeRoleId,
     changePhone,
+    changeEmail,
     changeCountry,
     changeState,
     changeCity,
     changeAddress1,
     changeAddress2,
     changeZipCode,
+    changeBirthDate,
     changeDeceasedDate,
     changeGuardianId,
     changeDoctorId,
+    changeBelongsToArchdiocese,
     changePamGroupId,
     changePam, 
     resetPamValues 

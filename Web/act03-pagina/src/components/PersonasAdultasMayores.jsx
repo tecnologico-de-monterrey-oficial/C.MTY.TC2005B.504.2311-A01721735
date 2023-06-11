@@ -1,7 +1,7 @@
 //import "./PersonaAdultasMayores.css";
 import { Table, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { useFetchPamsGroupsQuery, changePam, useDeletePamMutation } from "../store";
+import { useFetchPamsGroupsQuery, changePam, useDeletePamMutation, resetPamValues } from "../store";
 import { Link, useNavigate } from "react-router-dom";
 import { AiTwotoneEdit, AiFillDelete, AiFillFileAdd } from "react-icons/ai";
 
@@ -40,11 +40,9 @@ function PersonasAdultasMayores() {
               <th>Apellido</th>
               <th>Correo</th>
               <th>Fecha de Nacimiento</th>
-              <th>Pais</th>
-              <th>Estado</th>
               <th>
-                <Link to="/registro">
-                <Button variant="success">
+                <Link to="/Registro">
+                <Button variant="success" onClick = {resetPamValues()}>
                   <AiFillFileAdd />
                 </Button>
                 </Link>
@@ -66,20 +64,33 @@ function PersonasAdultasMayores() {
                   <td>{pam.email}</td>
                   <td>{pam.birth_date}</td>
                   <td>
+                    {console.log(pam)}
                     <Button 
                     variant="warning"
                     onClick={() => {handleEdit(
+                      
                       {
+
                         pam_id: pam.pam_id,
                         first_name: pam.first_name,
                         last_name: pam.last_name,
+                        gender_id: pam.gender_id,
+                        role_id: pam.role_id,
+                        phone: pam.phone,
                         email: pam.email,
+                        country: pam.country,
+                        state: pam.state,
+                        city: pam.city,
+                        address_1: pam.address_1,
+                        address_2: pam.address_2,
+                        zip_code: pam.zip_code,
                         birth_date: pam.birth_date,
+                        deceased_date: pam.deceased_date,
+                        guardian_id: pam.guardian_id,
+                        doctor_id: pam.doctor_id,
                         belongs_to_archdiocese: pam.belongs_to_archdiocese,
-                        archdiocese_id: pam.archdiocese_id,
-                        zone_id: pam.zone_id,
-                        deanery_id: pam.deanery_id,
-                        church_id: pam.church_id,
+                        pam_group_id: pam.pam_group_id,
+                        
                       }
                     )}}
                     >

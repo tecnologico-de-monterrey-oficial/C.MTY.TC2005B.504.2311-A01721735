@@ -11,7 +11,7 @@ const archdioceseApi = createApi({
         providesTags: ["Archdioceses"], // Ahorita vemos de que se trata
         query: () => {
           return {
-            url: "/getGroupArchdioceses",
+            url: "/getArchdioceses",
             params: {},
             method: "GET",
           };

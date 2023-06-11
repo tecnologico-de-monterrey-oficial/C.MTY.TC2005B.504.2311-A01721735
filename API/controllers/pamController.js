@@ -63,18 +63,31 @@ class MainController {
     console.log("Add Pams RTQ");
     console.log(req.body);
     if (
-      req.body.name != null &&
+      req.body.first_name != null &&
       req.body.last_name != null &&
       req.body.email != null &&
       req.body.birth_date != null 
     ) {
-      let name = req.body.name;
+      let first_name = req.body.first_name;
       let last_name = req.body.last_name;
+      let gender_id = req.body.gender_id;
+      let role_id = req.body.role_id;
+      let phone = req.body.phone;
       let email = req.body.email;
+      let country = req.body.country;
+      let state = req.body.state;
+      let city = req.body.city;
+      let address_1 = req.body.address_1;
+      let address_2 = req.body.address_2;
+      let zip_code = req.body.zip_code;
       let birth_date = req.body.birth_date;
-      let archdiocese = req.body.archdiocese;
-      let deanery_id = req.body.deanery_id;
-      var sql = `call sp_add_pam('${name}', '${last_name}', '${email}', '${birth_date}', ${archdiocese}, ${deanery_id});`;
+      let deceased_date = req.body.deceased_date;
+      let guardian_id = req.body.guardian_id;
+      let doctor_id = req.body.doctor_id;
+      let belongs_to_archdiocese = req.body.belongs_to_archdiocese;
+      let pam_group_id = req.body.pam_group_id;
+      
+      var sql = `call sp_add_pam('${first_name}', '${last_name}', '${gender_id}', '${role_id}', '${phone}', '${email}', '${country}', '${state}', '${city}', '${address_1}', '${address_2}', '${zip_code}', '${birth_date}', '${deceased_date}', '${guardian_id}', '${doctor_id}', '${belongs_to_archdiocese}','${pam_group_id}');`;
       mysql.query(sql, (error, data, fields) => {
         if (error) {
           res.status(500);
@@ -99,19 +112,32 @@ class MainController {
     console.log("Edit Pams RTQ");
     if (
       req.params.id != null &&
-      req.body.name != null &&
+      req.body.first_name != null &&
       req.body.last_name != null &&
       req.body.email != null &&
-      req.body.birth_date != null 
+      req.body.birth_date != null &&
+      req.body.deceased_date != null
     ) {
       let pamID = req.params.id;
-      let name = req.body.name;
+      let first_name = req.body.first_name;
       let last_name = req.body.last_name;
+      let gender_id = req.body.gender_id;
+      let role_id = req.body.role_id;
+      let phone = req.body.phone;
       let email = req.body.email;
+      let country = req.body.country;
+      let state = req.body.state;
+      let city = req.body.city;
+      let address_1 = req.body.address_1;
+      let address_2 = req.body.address_2;
+      let zip_code = req.body.zip_code;
       let birth_date = req.body.birth_date;
-      let archdiocese = req.body.archdiocese;
-      let deanery_id = req.body.deanery_id;
-      var sql = `call sp_edit_pam(${pamID},'${name}', '${last_name}', '${email}', '${birth_date}', ${archdiocese}, ${deanery_id});`;
+      let deceased_date = req.body.deceased_date;
+      let guardian_id = req.body.guardian_id;
+      let doctor_id = req.body.doctor_id;
+      let belongs_to_archdiocese = req.body.belongs_to_archdiocese;
+      let pam_group_id = req.body.pam_group_id;
+      var sql = `call sp_edit_pam('${pamID}','${first_name}', '${last_name}', '${gender_id}', '${role_id}', '${phone}', '${email}', '${country}', '${state}', '${city}', '${address_1}', '${address_2}', '${zip_code}', '${birth_date}', '${deceased_date}', '${guardian_id}', '${doctor_id}', '${belongs_to_archdiocese}','${pam_group_id}');`;
       mysql.query(sql, (error, data, fields) => {
         if (error) {
           res.status(500);
