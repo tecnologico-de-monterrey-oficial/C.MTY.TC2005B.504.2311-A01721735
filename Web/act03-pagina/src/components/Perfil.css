@@ -16,6 +16,13 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+/* Center the text*/
+.textPamStatus{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 15px;
+    
+}
 
 .custom-cobtainer{
     border-radius: 10px;

@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.get('/api/getPams', pamController.getPams);
 router.get('/api/getPamsGroups', pamController.getPamsGroups);
+router.get('/api/getPamByEmail/:email', pamController.getPamByEmail);
 router.get('/api/getPam/:id', pamController.getPam);
 router.post('/api/addPam', pamController.addPam);
 router.put('/api/updatePam/:id', pamController.updatePam);

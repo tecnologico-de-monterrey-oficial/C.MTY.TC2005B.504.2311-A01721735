@@ -41,10 +41,7 @@ function ManagePam() {
     useSelector((state) => state.pam);
   const [addPam, resultsAdd] = useAddPamMutation();
   const [editPam, resultsEdit] = useEditPamMutation();
-  const dataArchdioceses = useFetchGroupArchdiocesesQuery();
-  const [archdioceses, setArchdioceses] = useState([]);
-  const dataZones = useFetchGroupDataQuery(archdiocese_id);
-  const [zones, setZones] = useState([]);
+  
   const dataDeaneries = useFetchGroupDataQuery(zone_id);
   const [deaneries, setDeaneries] = useState([]);
   const dataChurchs = useFetchGroupDataQuery(deanery_id);
@@ -60,18 +57,7 @@ function ManagePam() {
     }
   }, [dataDeaneries.data]);
 
-  useEffect(() => {
-    if (dataArchdioceses.data) {
-      setArchdioceses(dataArchdioceses.data.archdioceses);
-    }
-  }, [dataArchdioceses.data]);
-
-  useEffect(() => {
-    if (dataZones.data) {
-      setZones(dataZones.data.groupData);
-    }
-  }, [dataZones.data]);
-
+ 
   useEffect(() => {
     if (dataChurchs.data) {
       setChurchs(dataChurchs.data.groupData);

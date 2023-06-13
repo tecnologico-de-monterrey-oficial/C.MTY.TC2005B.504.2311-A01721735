@@ -243,7 +243,7 @@ const handleChangeName = (event) => {
                   <Form.Group controlId='formTelefono'>
                     <Form.Label className='form-label'>Telefono</Form.Label>
                     <Form.Control type='text' placeholder='Teclea tu telefono' 
-                    phone = {phone}
+                    value = {phone}
                     onChange = {handleChangePhone}
 
                     />

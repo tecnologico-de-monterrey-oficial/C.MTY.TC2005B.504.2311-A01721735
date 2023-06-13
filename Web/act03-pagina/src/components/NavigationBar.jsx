@@ -4,8 +4,21 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import "./NavigationBar.css";
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useSelector} from "react-redux";
+import { useEffect, useState } from "react";
 
 function NavigationBar() {
+  const { user } = useSelector((state) => state.auth);
+const [isLogged, setIsLogged] = useState(false);
+  useEffect (() => {
+    if (user) {
+      setIsLogged(true);
+    }
+    else{
+      setIsLogged(false);
+    }
+  }, [user]);
+
   return (
     <Navbar className="NavBar" variant="dark">
       <Container>
@@ -45,7 +58,11 @@ function NavigationBar() {
             <Link className="Link" to="/Registro">Registro</Link>
           
         </Nav>
-
+        <Nav className="justify-content-end">
+            
+          {isLogged && <Link className = "Link" to ="/Perfil">{user.displayName}</Link>}  
+          {!isLogged && <Link className="Link" to="/login">Login</Link>}
+          </Nav>
       </Container>
     </Navbar>
   );

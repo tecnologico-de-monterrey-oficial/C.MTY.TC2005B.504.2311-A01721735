@@ -29,10 +29,19 @@ import {
     resetPamValues 
 } from "./slices/pamSlice";
 
+import {
+    setUser,
+    setLoading,
+    setError,
+    logout,
+    setRole,
+    authReducer
+} from "./slices/authSlice";
 
 const store = configureStore({
     reducer: {
         pam: pamReducer,
+        auth: authReducer,
         [pamsApi.reducerPath]: pamsApi.reducer,
         [archdioceseApi.reducerPath]: archdioceseApi.reducer,
         [deaneryApi.reducerPath]: deaneryApi.reducer,
@@ -40,7 +49,9 @@ const store = configureStore({
         [groupApi.reducerPath]: groupApi.reducer,
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware()
+        return getDefaultMiddleware(
+            { serializableCheck: false }
+        )
         .concat(pamsApi.middleware)
         .concat(archdioceseApi.middleware)
         .concat(deaneryApi.middleware)
@@ -72,14 +83,19 @@ export {
     changeBelongsToArchdiocese,
     changePamGroupId,
     changePam, 
-    resetPamValues 
+    resetPamValues,
+    setUser,
+    setLoading,
+    setError,
+    logout
 }
 export { 
     useFetchPamsQuery, 
     useFetchPamsGroupsQuery, 
     useAddPamMutation, 
     useEditPamMutation, 
-    useDeletePamMutation 
+    useDeletePamMutation,
+    useFetchPamByEmailQuery
 } from "./apis/pamsApi";
 export {
     useFetchArchdiocesesQuery
@@ -93,3 +109,6 @@ export {
 export {
     useFetchGroupArchdiocesesQuery, useFetchGroupDataQuery
 } from "./apis/groupApi";
+export {
+    signUpWithGoogle
+} from "./thunks/authThunk";

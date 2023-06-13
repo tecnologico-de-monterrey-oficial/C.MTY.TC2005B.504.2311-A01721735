@@ -22,17 +22,35 @@ import CFS from './components/CFS';
 import Katz from './components/Katz';
 import LWB from './components/LWB';
 import EditRegistro from './components/EditRegistro';
-
-
+import Signin from './components/Signin';
+import Protected from './components/Protected';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const { user } = useSelector((state) => state.auth);
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      setIsLogged(true);
+    }
+  }, [user]);
+  
   return (
     <div className="App">
       <BrowserRouter>
         <NavigationBar />
         <Routes>
           <Route path="/" element={<Abuelitos />} />
-          <Route path="/pams" element={<PersonasAdultasMayores />} />
+          <Route 
+            path="/pams" 
+            element={
+              <Protected isSignedIn={isLogged}>
+                <PersonasAdultasMayores />
+              </Protected>
+            } />
           <Route path="/pams/add" element={<ManagePam />} />
           <Route path="/pams/edit/:pam_id" element={<EditRegistro />} />
           <Route path="/Afectivo" element={<Afectivo />} />
@@ -50,6 +68,7 @@ function App() {
           <Route path="/LWB" element={<LWB />} />
           <Route path="/GDS" element={<GDS />} />
           <Route path="/PruebaGDS" element={<PruebaGDS />} />
+          <Route path = "/Login" element={<Signin />} />
          
           
           

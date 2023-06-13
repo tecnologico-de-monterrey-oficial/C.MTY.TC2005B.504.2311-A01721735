@@ -34,6 +34,32 @@ class MainController {
     });
   }
 
+  async getPamByEmail(req, res) {
+    console.log("Get Pam By Email");
+    console.log("EMAIL: ");
+    console.log(req.params.email);
+    if (req.params.email != null) {
+      let email = req.params.email;
+      var sql = `call sp_get_pam_by_email('${email}')`;
+      mysql.query(sql, (error, data, fields) => {
+        if (error) {
+          res.status(500);
+          res.send(error.message);
+        } else {
+          console.log(data);
+          var pam = data[0];
+          res.json({
+            pam,
+          });
+        }
+      });
+    } else {
+      res.send("Por favor llena todos los datos!");
+      console.log("Por favor llena todos los datos!");
+    }
+  }
+
+
   async getPam(req, res) {
     console.log("Get Pam");
     console.log(req.params.id);
