@@ -1,16 +1,27 @@
 import './Perfil.css'
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import Contacto from './Contacto';
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
 import {useFetchPamByEmailQuery} from "../store";
 import { setRole } from '../store/slices/authSlice';
+import {useAddPamByEmailMutation} from "../store";
+
 function Perfil() {
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.auth);
     const {data, error, isFetching} = useFetchPamByEmailQuery(user ? user.email : " ");
     const [pamFound, setPamFound] = useState(false);
     const [pamData, setPamData] = useState(null);
+    const [addPamByEmail, resultsAddByEmail] = useAddPamByEmailMutation();
+
+    const handleAddPamByEmailClick = () => {
+        console.log("EMAIL");
+        console.log(user.email);
+        addPamByEmail({
+            email: user.email,
+        });
+    };
     useEffect(() => {
         if (data) {
             if(data.pam.length > 0){
@@ -27,7 +38,7 @@ function Perfil() {
    
         
     
-               
+            console.log(pamData);
 
     return (
 
@@ -74,7 +85,7 @@ function Perfil() {
                             </Col>
                             <Col>
                                 <h2 className="textPerfil">Domicilio</h2>
-                                <h2 className="textPerfil2">Blvd. Metropolitan Axis 3403</h2>
+                                <h2 className="textPerfil2">{pamData?.address_1}</h2>
                             </Col>
                         </Row>
                     </Container>
@@ -83,24 +94,25 @@ function Perfil() {
                 <div className="tripeDiv">
                     <Container className="custom-cobtainer">
                         <Row>
-                            <Col className="headerPerfil">Mis Contactos de Emergencia</Col>
+                            <Col className="headerPerfil">Informacion</Col>
                         </Row>
                         <Row>
                             <Col>
-                                <h2 className="textPerfil">Nombre</h2>
-                                <h2 className="textPerfil2">Sultano Quintanilla</h2>
+                                <h2 className="textPerfil">Código Postal</h2>
+                                <h2 className="textPerfil2">{pamData?.zip_code}</h2>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <h2 className="textPerfil">Relación</h2>
-                                <h2 className="textPerfil2">Yerno</h2>
+                                <h2 className="textPerfil">Fecha de Nacimiento</h2>
+                                <h2 className="textPerfil2">{pamData?.birth_date}</h2>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <h2 className="textPerfil">Correo</h2>
-                                <h2 className="textPerfil2">randomcitizen@example.com</h2>
+                                <h2 className="textPerfil">Género</h2>
+                              
+                                <h2 className="textPerfil2">{pamData?.gender_id === 1 ? "Femenino" : "Masculino"}</h2>
                             </Col>
                         </Row>
                     </Container>
@@ -114,11 +126,14 @@ function Perfil() {
             {isFetching && <h1 className = "textPamStatus" >Cargando...</h1>}
             {error && <h1 className = "textPamStatus">Hubo un error: {error}</h1>}
             {!isFetching && pamFound && user && <h1 className = "textPamStatus">El usuario {user.email} es PAM</h1>}
-            {!isFetching && !pamFound && user && <h1 className = "textPamStatus">El usuario {user.email} no es PAM</h1>}
+            {!isFetching && !pamFound && user && (
+        <div>
+          <h1 className="textPamStatus">El usuario {user.email} no es PAM</h1>
+          <Button className = 'buttonPruebaPerfil' onClick={handleAddPamByEmailClick}>Registrar PAM con correo</Button>
+        </div>
+      )}
 
-            
-
-           
+        
 
             <Contacto />
         

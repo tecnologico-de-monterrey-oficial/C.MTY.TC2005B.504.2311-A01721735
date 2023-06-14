@@ -13,11 +13,15 @@ const [isLogged, setIsLogged] = useState(false);
   useEffect (() => {
     if (user) {
       setIsLogged(true);
+      console.log("USER ROLE");
+      console.log(user.role);
     }
     else{
       setIsLogged(false);
     }
   }, [user]);
+
+  
 
   return (
     <Navbar className="NavBar" variant="dark">
@@ -36,9 +40,9 @@ const [isLogged, setIsLogged] = useState(false);
           <Link className="Link" to="/">
             Inicio
           </Link>
-          <Link className="Link" to="/pams">
-            Personas Adultas Mayores
-          </Link>
+          
+            <Link className="Link" to="/pams">Personas Adultas Mayores</Link>
+            
           <NavDropdown title="Áreas" id="basic-nav-dropdown">
          
               <NavDropdown.Item as={Link} to="/Afectivo">Afectivo</NavDropdown.Item>

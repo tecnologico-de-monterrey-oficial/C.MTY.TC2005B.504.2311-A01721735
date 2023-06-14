@@ -3,6 +3,11 @@
     
 }
 
+.buttonPruebaPerfil {
+    width: 100%;
+    max-width: 200px;
+    height: 50px;
+  }
 
 .profilePic{
     width: 300px;

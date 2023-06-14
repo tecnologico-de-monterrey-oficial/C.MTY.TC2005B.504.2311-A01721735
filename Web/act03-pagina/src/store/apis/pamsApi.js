@@ -62,6 +62,7 @@ const pamsApi = createApi({
               doctor_id: pam.doctor_id,
               belongs_to_archdiocese: pam.belongs_to_archdiocese,
               pam_group_id: pam.pam_group_id,
+
             },
           };
         },
@@ -104,9 +105,21 @@ const pamsApi = createApi({
           };
         },
       }),
+      addPamByEmail: builder.mutation({
+        invalidatesTags: ["Pams"],
+        query: (pam) => {
+          return {
+            method: 'POST',
+            url: '/addPamByEmail',
+            body: {
+              email: pam.email,
+            },
+          };
+        },
+      }),
     };
   },
 });
 
-export const { useFetchPamsQuery, useFetchPamsGroupsQuery, useFetchPamByEmailQuery,useAddPamMutation, useEditPamMutation, useDeletePamMutation } = pamsApi;
+export const { useFetchPamsQuery, useFetchPamsGroupsQuery, useFetchPamByEmailQuery,useAddPamMutation, useEditPamMutation, useDeletePamMutation, useAddPamByEmailMutation } = pamsApi;
 export { pamsApi };

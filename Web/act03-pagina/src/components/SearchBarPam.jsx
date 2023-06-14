@@ -1,15 +1,17 @@
-//import "./PersonaAdultasMayores.css";
+import React, { useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useFetchPamsGroupsQuery, changePam, useDeletePamMutation, resetPamValues } from "../store";
 import { Link, useNavigate } from "react-router-dom";
 import { AiTwotoneEdit, AiFillDelete, AiFillFileAdd } from "react-icons/ai";
+import SearchBarPam from "./SearchBarPam";
 
 function PersonasAdultasMayores() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data, error, isFetching } = useFetchPamsGroupsQuery();
   const [deletePam, resultsDelete] = useDeletePamMutation();
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleEdit = (pam) => {
     dispatch(changePam(pam));
@@ -29,10 +31,16 @@ function PersonasAdultasMayores() {
     );
   }
 
+  const filteredPams = data?.pams?.filter(
+    (pam) =>
+      `${pam.first_name} ${pam.last_name} ${pam.email}`.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
       <div>
         <h1>Listado de Personas Adultas Mayores</h1>
+        <SearchBarPam value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
         <Table striped bordered hover>
           <thead className="PamHeader">
             <tr>
@@ -42,9 +50,9 @@ function PersonasAdultasMayores() {
               <th>Fecha de Nacimiento</th>
               <th>
                 <Link to="/Registro">
-                <Button variant="success" onClick = {resetPamValues()}>
-                  <AiFillFileAdd />
-                </Button>
+                  <Button variant="success" onClick={resetPamValues}>
+                    <AiFillFileAdd />
+                  </Button>
                 </Link>
               </th>
             </tr>
@@ -57,7 +65,7 @@ function PersonasAdultasMayores() {
             )}
 
             {!isFetching &&
-              data.pams.map((pam) => (
+              filteredPams?.map((pam) => (
                 <tr className="PamsDetail" key={pam.pam_id}>
                   <td>{pam.first_name}</td>
                   <td>{pam.last_name}</td>
@@ -65,44 +73,37 @@ function PersonasAdultasMayores() {
                   <td>{pam.birth_date}</td>
                   <td>
                     {console.log(pam)}
-                    <Button 
-                    variant="warning"
-                    onClick={() => {handleEdit(
-                      
-                      {
-
-                        pam_id: pam.pam_id,
-                        first_name: pam.first_name,
-                        last_name: pam.last_name,
-                        gender_id: pam.gender_id,
-                        role_id: pam.role_id,
-                        phone: pam.phone,
-                        email: pam.email,
-                        country: pam.country,
-                        state: pam.state,
-                        city: pam.city,
-                        address_1: pam.address_1,
-                        address_2: pam.address_2,
-                        zip_code: pam.zip_code,
-                        birth_date: pam.birth_date,
-                        deceased_date: pam.deceased_date,
-                        guardian_id: pam.guardian_id,
-                        doctor_id: pam.doctor_id,
-                        belongs_to_archdiocese: pam.belongs_to_archdiocese,
-                        pam_group_id: pam.pam_group_id,
-                        archdiocese_id: pam.archdiocese_id,
-                        zone_id: pam.zone_id,
-                        deanery_id: pam.deanery_id,
-                        church_id: pam.church_id,
-                        
-                      }
-                    )}}
+                    <Button
+                      variant="warning"
+                      onClick={() => {
+                        handleEdit({
+                          pam_id: pam.pam_id,
+                          first_name: pam.first_name,
+                          last_name: pam.last_name,
+                          gender_id: pam.gender_id,
+                          role_id: pam.role_id,
+                          phone: pam.phone,
+                          email: pam.email,
+                          country: pam.country,
+                          state: pam.state,
+                          city: pam.city,
+                          address_1: pam.address_1,
+                          address_2: pam.address_2,
+                          zip_code: pam.zip_code,
+                          birth_date: pam.birth_date,
+                          deceased_date: pam.deceased_date,
+                          guardian_id: pam.guardian_id,
+                          doctor_id: pam.doctor_id,
+                          belongs_to_archdiocese: pam.belongs_to_archdiocese,
+                          pam_group_id: pam.pam_group_id,
+                        });
+                      }}
                     >
                       <AiTwotoneEdit />
                     </Button>
-                    <Button 
-                    variant="danger"
-                    onClick={() => handleDelete(pam.pam_id)}
+                    <Button
+                      variant="danger"
+                      onClick={() => handleDelete(pam.pam_id)}
                     >
                       <AiFillDelete />
                     </Button>

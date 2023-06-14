@@ -134,6 +134,37 @@ class MainController {
     }
   }
 
+  async addPamByEmail(req, res) {
+    console.log("Add Pam By Email RTQ");
+    console.log(req.body);
+    if (
+      req.body.email != null 
+    ) {
+     
+      let email = req.body.email;
+      
+      
+      var sql = `call sp_add_pam_by_email('${email}');`;
+      mysql.query(sql, (error, data, fields) => {
+        if (error) {
+          res.status(500);
+          res.send(error.message);
+          console.log(error.message);
+        } else {
+          console.log(data);
+          res.json({
+            status: 200,
+            message: "PAM uploaded successfully by email",
+            affectedRows: data.affectedRows,
+          });
+        }
+      });
+    } else {
+      res.send("Por favor llena todos los datos!");
+      console.log("Por favor llena todos los datos!");
+    }
+  }
+
   async updatePam(req, res) {
     console.log("Edit Pams RTQ");
     if (

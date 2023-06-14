@@ -23,6 +23,10 @@ import {
     changeDoctorId,
     changeBelongsToArchdiocese,
     changePamGroupId,
+    changeArchdioceseId,
+    changeZoneId,
+    changeDeaneryId,
+    changeChurchId,
     changePam, 
     resetPamValues ,
   useAddPamMutation,
@@ -37,13 +41,64 @@ function Registro() {
   const params = useParams();
     const [isFinished, setIsFinished] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
-    const {first_name, last_name,gender_id,role_id,phone,email,country,state,city,address_1,address_2,zip_code,birth_date,deceased_date,guardian_id,doctor_id,belongs_to_archdiocese,pam_group_id} = 
+    const {first_name, last_name,gender_id,role_id,phone,email,country,state,city,address_1,address_2,zip_code,birth_date,deceased_date,guardian_id,doctor_id,belongs_to_archdiocese,pam_group_id,archdiocese_id, zone_id, deanery_id, church_id} = 
     useSelector((state) => state.pam);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [addPam, resultsAdd] = useAddPamMutation();
+  const dataArchdioceses = useFetchGroupArchdiocesesQuery();
+  const [archdioceses, setArchdioceses] = useState([]);
+  const dataZones = useFetchGroupDataQuery(archdiocese_id);
+  const [zones, setZones] = useState([]);
+  const dataDeaneries = useFetchGroupDataQuery(zone_id);
+  const [deaneries, setDeaneries] = useState([]);
+  const dataChurchs = useFetchGroupDataQuery(deanery_id);
+  const [churchs, setChurchs] = useState([]);
+  const [showArchdiocese, setShowArchdiocese] = useState(false);
+  const [showZone, setShowZone] = useState(false);
+  const [showDeanery, setShowDeanery] = useState(false);
+  const [showChurch, setShowChurch] = useState(false);
   
+
+  useEffect(() => {
+  
+      if (belongs_to_archdiocese) {
+        setShowArchdiocese(true);
+        setShowZone(true);
+        setShowDeanery(true);
+        setShowChurch(true);
+      }
+     
+  }, [params]);
+  useEffect(() => {
+    if (dataDeaneries.data) {
+      setDeaneries(dataDeaneries.data.groupData);
+    }
+  }, [dataDeaneries.data]);
+
+  useEffect(() => {
+    if (dataArchdioceses.data) {
+      setArchdioceses(dataArchdioceses.data.archdioceses);
+    }
+  }, [dataArchdioceses.data]);
+
+  useEffect(() => {
+    if (dataZones.data) {
+      setZones(dataZones.data.groupData);
+    }
+  }, [dataZones.data]);
+
+  useEffect(() => {
+    if (dataChurchs.data) {
+      setChurchs(dataChurchs.data.groupData);
+    }
+  }, [dataChurchs.data]);
       
+
+
+  
+
+
 const handleChangeName = (event) => {
       console.log(event.target.value);
       dispatch(changeName(event.target.value));
@@ -108,17 +163,56 @@ const handleChangeName = (event) => {
     const handleChangeBelongsToArchdiocese = (event) => {
       if (event.target.checked) {
         dispatch(changeBelongsToArchdiocese(1));
+        setShowArchdiocese(true);
         
       } else {
         dispatch(changeBelongsToArchdiocese(0));
+        setShowArchdiocese(false);
        
       }
+      console.log(showArchdiocese);
     
     };
 
     const handleChangePamGroupId = (event) => {
       
       dispatch(changePamGroupId(event.target.value));
+    };
+
+    const handleChangeArchdioceseID = (event) => {
+      dispatch(changeArchdioceseId(event.target.value));
+      if (event.target.value != 1) {
+        setShowZone(true);
+      } else {
+        setShowZone(false);
+        setShowDeanery(false);
+        setShowChurch(false);
+      }
+    };
+  
+    const handleChangeZoneID = (event) => {
+      dispatch(changeZoneId(event.target.value));
+      if (event.target.value != 1) {
+        setShowDeanery(true);
+      } else {
+        setShowDeanery(false);
+        setShowChurch(false);
+      }
+    };
+  
+    const handleChangeDeaneryID = (event) => {
+      dispatch(changeDeaneryId(event.target.value));
+      if (event.target.value != 1) {
+        setShowChurch(true);
+      } else {
+        setShowDeanery(false);
+      }
+  
+    };
+  
+    const handleChangeChurchID = (event) => {
+      dispatch(changeChurchId(event.target.value));
+  
     };
 
     const handleSubmit = (event) => {
@@ -145,7 +239,7 @@ const handleChangeName = (event) => {
     guardian_id: guardian_id,
     doctor_id: doctor_id,
     belongs_to_archdiocese: belongs_to_archdiocese,
-    pam_group_id: pam_group_id,
+    pam_group_id: deanery_id
   })
     .then(() => {
       dispatch(resetPamValues());
@@ -202,7 +296,7 @@ const handleChangeName = (event) => {
                   <Form.Group controlId='formSexo'>
                     <Form.Label className='form-label'>Sexo</Form.Label>
                     <Form.Select className = 'form-selectRegistro' placeholder='Seleccione una opción'
-                    value={gender_id === 1 ? "Masculino" : "Femenino"}
+                    value={gender_id === 1 ? "Femenino" : "Masculino"}
                     onChange={handleChangeGenderId}
                     >
                       <option value='' disabled selected>Seleccione una opción</option>
@@ -329,13 +423,7 @@ const handleChangeName = (event) => {
               </Row>
             </Col>
           </Row>
-          <Form.Group controlId='formPamGroupId'>
-                    <Form.Label>PAM Group ID</Form.Label>
-                    <Form.Control type='number' placeholder='Teclea PAM Group ID' 
-                    value = {pam_group_id}
-                    onChange = {handleChangePamGroupId}
-                    />
-                  </Form.Group>
+          
 
           <Form.Group className="mb-3" controlId="belongsArchdiocese">
           <Form.Label>¿Perteneces a una arquidiócesis?</Form.Label>
@@ -345,6 +433,85 @@ const handleChangeName = (event) => {
             onChange={handleChangeBelongsToArchdiocese}
           />
         </Form.Group>
+        {showArchdiocese && (
+          <>
+        <Form.Group className="mb-3" controlId="archdiocese_id">
+          <Form.Label>Arquidiócesis</Form.Label>
+          <Form.Select
+            value={archdiocese_id}
+            onChange={handleChangeArchdioceseID}
+          >
+            <option value={1}>Selecciona una arquidócesis</option>
+            {archdioceses.map((arch) => {
+              return (
+                <option key={arch.pam_group_id} value={arch.pam_group_id}>
+                  {arch.group_name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+        
+        {showZone && (
+        <Form.Group className="mb-3" controlId="zone_id">
+          <Form.Label>Zona</Form.Label>
+          <Form.Select
+            value={zone_id}
+            onChange={handleChangeZoneID}
+          >
+            <option value={1}>Selecciona una zona</option>
+            {zones.map((zone) => {
+              return (
+                <option key={zone.pam_group_id} value={zone.pam_group_id}>
+                  {zone.group_name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+        )}
+        {showDeanery  && (
+        <Form.Group className="mb-3" controlId="deanery_id">
+          <Form.Label>Decanato</Form.Label>
+          <Form.Select
+            value={deanery_id}
+            onChange={handleChangeDeaneryID}
+          >
+            <option value={1}>Selecciona una decanato</option>
+            {deaneries.map((deanery) => {
+              return (
+                <option key={deanery.pam_group_id} value={deanery.pam_group_id}>
+                  {deanery.group_name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+        )}
+        {showChurch  && (
+        <Form.Group className="mb-3" controlId="church_id">
+          <Form.Label>Iglesia/Capilla</Form.Label>
+          <Form.Select
+            value={church_id}
+            onChange={handleChangeChurchID}
+          >
+            <option value={1}>Selecciona una iglesia o capilla</option>
+            {churchs.map((church) => {
+              return (
+                <option key={church.pam_group_id} value={church.pam_group_id}>
+                  {church.group_name}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </Form.Group>
+        )}
+        </>
+        )}
+
+       
+      
+
         <Button
           className='buttonPruebaRegistro'
           variant='secondary'

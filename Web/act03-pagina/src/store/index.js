@@ -25,6 +25,10 @@ import {
     changeDoctorId,
     changeBelongsToArchdiocese,
     changePamGroupId,
+    changeArchdioceseId,
+    changeZoneId,
+    changeDeaneryId,
+    changeChurchId,
     changePam, 
     resetPamValues 
 } from "./slices/pamSlice";
@@ -82,6 +86,10 @@ export {
     changeDoctorId,
     changeBelongsToArchdiocese,
     changePamGroupId,
+    changeArchdioceseId,
+    changeZoneId,
+    changeDeaneryId,
+    changeChurchId,
     changePam, 
     resetPamValues,
     setUser,
@@ -95,7 +103,8 @@ export {
     useAddPamMutation, 
     useEditPamMutation, 
     useDeletePamMutation,
-    useFetchPamByEmailQuery
+    useFetchPamByEmailQuery,
+    useAddPamByEmailMutation
 } from "./apis/pamsApi";
 export {
     useFetchArchdiocesesQuery

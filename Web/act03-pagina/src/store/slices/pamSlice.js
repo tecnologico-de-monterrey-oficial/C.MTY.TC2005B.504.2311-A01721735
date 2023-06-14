@@ -20,12 +20,17 @@ const pamSlice = createSlice({
         guardian_id: 0,
         doctor_id: 0,
         belongs_to_archdiocese: 0,
-        pam_group_id: 0
+        pam_group_id: 0,
+        archdiocese_id: 1,
+        zone_id: 1,
+        deanery_id: 1,
+        church_id: 1
     },
     reducers: {
         changeName(state, action) {
             state.first_name = action.payload;
         },
+        
         changeLastName(state, action) {
             state.last_name = action.payload;
         },
@@ -77,6 +82,18 @@ const pamSlice = createSlice({
         changePamGroupId(state, action) {
             state.pam_group_id = action.payload;
         },
+        changeArchdioceseId(state, action) {
+            state.archdiocese_id = action.payload;
+        },
+        changeZoneId(state, action) {
+            state.zone_id = action.payload;
+        },
+        changeDeaneryId(state, action) {
+            state.deanery_id = action.payload;
+        },
+        changeChurchId(state, action) {
+            state.church_id = action.payload;
+        },
         changePam(state, action) {
             state.first_name = action.payload.first_name;
             state.last_name = action.payload.last_name;
@@ -96,9 +113,13 @@ const pamSlice = createSlice({
             state.doctor_id = action.payload.doctor_id;
             state.belongs_to_archdiocese = action.payload.belongs_to_archdiocese;
             state.pam_group_id = action.payload.pam_group_id;
-
+            state.archdiocese_id = action.payload.archdiocese_id;
+            state.zone_id = action.payload.zone_id;
+            state.deanery_id = action.payload.deanery_id; 
+            state.church_id = action.payload.church_id;
            
         },
+        
         resetPamValues(state, action) {
             state.first_name = '';
             state.last_name = '';
@@ -118,7 +139,10 @@ const pamSlice = createSlice({
             state.doctor_id = 0;
             state.belongs_to_archdiocese = 0;
             state.pam_group_id = 0;
-
+            state.archdiocese_id = 1;
+            state.zone_id = 1;
+            state.deanery_id = 1;
+            state.church_id = 1;
         }
     }
 });
@@ -143,6 +167,10 @@ export const {
     changeBelongsToArchdiocese,
     changePamGroupId,
     changePam, 
+    changeArchdioceseId,
+    changeZoneId,
+    changeDeaneryId,
+    changeChurchId,
     resetPamValues 
 } = pamSlice.actions;
 export const pamReducer = pamSlice.reducer;
