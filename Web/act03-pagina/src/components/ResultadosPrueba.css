@@ -1,0 +1,116 @@
+.todoResultadoPrueba {
+    margin-top: 1.25rem;
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+    border-radius: 0.625rem;
+    height: 100%;
+  }
+
+  .fotoResultadoPrueba img {
+    display: inline-block;
+    border-radius: 50%;
+    width: 20rem;
+    height: 20rem;
+    margin-right: 7rem;
+  }
+
+  .todoResultadoPrueba h1 {
+    font-size: 4rem;
+    font-family: 'Sanchez', serif;
+    padding-bottom: 1rem;
+    text-align: left;
+  }
+
+  .todoResultadoPrueba h2 {
+    font-size: 2.5em;
+    font-family: 'Sanchez', serif;
+    padding-bottom: 1.25rem;
+    text-align: left;
+  }
+
+.containerResultadoPrueba {
+      display: flex;
+      margin-left: 6.25rem;
+      margin-right: 6.25rem;
+}
+
+.ResultadosPruebaButons {
+  background-color: #EFE3CB;
+  border-radius: 1rem;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 2rem;
+}
+
+.buttonResultadosPrueba {
+  background-color: #D9D9D9;
+  color: black;
+  border: 2px solid #D9D9D9;
+  width: 19rem;
+  height: 15rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-bottom: 0rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonResultadosPrueba img {
+  width: 12rem;
+  height: 12rem;
+}
+
+.topButtonsResultadosPrueba, .bottomButtonsResultadosPrueba {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.buttonContainerResultadosPrueba {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem;
+  margin-top: 1rem;
+}
+
+
+.buttonContainerResultadosPrueba .dropdown-toggle  {
+  font-weight: bold;
+  color: black;
+  background-color: #EFE3CB;;
+  border: 2px solid #EFE3CB;;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;}
+
+
+.buttonContainerResultadosPrueba .dropdown-toggle:hover  {
+  background-color: #EFE3CB;;
+  border: 2px solid #EFE3CB;;
+  color: black;
+}
+
+.buttonContainerResultadosPrueba .dropdown-toggle:focus {
+  background-color: #EFE3CB;;
+  border: 2px solid #EFE3CB;;
+  color: black;
+}
+
+.buttonContainerResultadosPrueba .dropdown-toggle:active {
+  background-color: #EFE3CB;;
+  border: 2px solid #EFE3CB;;
+  color: black;
+}
+
+.buttonContainerResultadosPrueba .dropdown-toggle::after {
+  display: #EFE3CB;;
+}
+
+.buttonContainerResultadosPrueba  .dropdown-toggle:active {
+  background-color: #EFE3CB !important;
+  border: 2px solid #EFE3CB !important;
+  color: black !important;
+}

@@ -10,12 +10,10 @@ import {
   changeArchdioceseId,
   changeZoneId, 
   changeDeaneryId,
-  changeChurchId,
   resetPamValues,
   useAddPamMutation,
   useEditPamMutation,
-  useFetchGroupArchdiocesesQuery,
-  useFetchGroupDataQuery,
+  useFetchArchdiocesesQuery,
   useFetchDeaneriesQuery,
   useFetchZonesQuery,
 } from "../store";
@@ -27,26 +25,23 @@ function ManagePam() {
   const [mode, setMode] = useState("add");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { name, last_name, email, birth_date, archdiocese, archdiocese_id, zone_id, deanery_id, church_id } =
+  const { name, last_name, email, birth_date, archdiocese, archdiocese_id, zone_id, deanery_id } =
     useSelector((state) => state.pam);
   const [addPam, resultsAdd] = useAddPamMutation();
   const [editPam, resultsEdit] = useEditPamMutation();
-  const dataArchdioceses = useFetchGroupArchdiocesesQuery();
+  const dataArchdioceses = useFetchArchdiocesesQuery();
   const [archdioceses, setArchdioceses] = useState([]);
-  const dataZones = useFetchGroupDataQuery(archdiocese_id);
+  const dataZones = useFetchZonesQuery(archdiocese_id);
   const [zones, setZones] = useState([]);
-  const dataDeaneries = useFetchGroupDataQuery(zone_id);
+  const dataDeaneries = useFetchDeaneriesQuery(zone_id);
   const [deaneries, setDeaneries] = useState([]);
-  const dataChurchs = useFetchGroupDataQuery(deanery_id);
-  const [churchs, setChurchs] = useState([]);
   const [showArchdiocese, setShowArchdiocese] = useState(false);
   const [showZone, setShowZone] = useState(false);
   const [showDeanery, setShowDeanery] = useState(false);
-  const [showChurch, setShowChurch] = useState(false);
 
   useEffect(() => {
     if (dataDeaneries.data) {
-      setDeaneries(dataDeaneries.data.groupData);
+      setDeaneries(dataDeaneries.data.deaneries);
     }
   }, [dataDeaneries.data]);
 
@@ -58,15 +53,9 @@ function ManagePam() {
 
   useEffect(() => {
     if (dataZones.data) {
-      setZones(dataZones.data.groupData);
+      setZones(dataZones.data.zones);
     }
   }, [dataZones.data]);
-
-  useEffect(() => {
-    if (dataChurchs.data) {
-      setChurchs(dataChurchs.data.groupData);
-    }
-  }, [dataChurchs.data]);
       
 
   useEffect(() => {
@@ -76,7 +65,6 @@ function ManagePam() {
         setShowArchdiocese(true);
         setShowZone(true);
         setShowDeanery(true);
-        setShowChurch(true);
       }
     } else {
       setMode("add");
@@ -107,38 +95,20 @@ function ManagePam() {
 
   const handleChangeArchdioceseID = (event) => {
     dispatch(changeArchdioceseId(event.target.value));
-    if (event.target.value != 1) {
+    if (event.target.value !== 1) {
       setShowZone(true);
-    } else {
-      setShowZone(false);
-      setShowDeanery(false);
-      setShowChurch(false);
     }
   };
 
   const handleChangeZoneID = (event) => {
     dispatch(changeZoneId(event.target.value));
-    if (event.target.value != 1) {
+    if (event.target.value !== 1) {
       setShowDeanery(true);
-    } else {
-      setShowDeanery(false);
-      setShowChurch(false);
     }
   };
 
   const handleChangeDeaneryID = (event) => {
     dispatch(changeDeaneryId(event.target.value));
-    if (event.target.value != 1) {
-      setShowChurch(true);
-    } else {
-      setShowDeanery(false);
-    }
-
-  };
-
-  const handleChangeChurchID = (event) => {
-    dispatch(changeChurchId(event.target.value));
-
   };
 
   const handleSubmit = (event) => {
@@ -150,7 +120,7 @@ function ManagePam() {
         email: email,
         birth_date: birth_date,
         archdiocese: archdiocese,
-        deanery_id: archdiocese ? church_id : 1
+        deanery_id: archdiocese ? deanery_id : 1
       });
     } else {
       editPam({
@@ -160,7 +130,7 @@ function ManagePam() {
         email: email,
         birth_date: birth_date,
         archdiocese: archdiocese,
-        deanery_id: archdiocese ? church_id : 1
+        deanery_id: archdiocese ? deanery_id : 1
       });
     }
     dispatch(resetPamValues());
@@ -230,8 +200,8 @@ function ManagePam() {
             <option value={1}>Selecciona una arquidócesis</option>
             {archdioceses.map((arch) => {
               return (
-                <option key={arch.pam_group_id} value={arch.pam_group_id}>
-                  {arch.group_name}
+                <option key={arch.archdiocese_id} value={arch.archdiocese_id}>
+                  {arch.name}
                 </option>
               );
             })}
@@ -248,8 +218,8 @@ function ManagePam() {
             <option value={1}>Selecciona una zona</option>
             {zones.map((zone) => {
               return (
-                <option key={zone.pam_group_id} value={zone.pam_group_id}>
-                  {zone.group_name}
+                <option key={zone.zone_id} value={zone.zone_id}>
+                  {zone.name}
                 </option>
               );
             })}
@@ -266,26 +236,8 @@ function ManagePam() {
             <option value={1}>Selecciona una decanato</option>
             {deaneries.map((deanery) => {
               return (
-                <option key={deanery.pam_group_id} value={deanery.pam_group_id}>
-                  {deanery.group_name}
-                </option>
-              );
-            })}
-          </Form.Select>
-        </Form.Group>
-        )}
-        {showChurch  && (
-        <Form.Group className="mb-3" controlId="church_id">
-          <Form.Label>Iglesia/Capilla</Form.Label>
-          <Form.Select
-            value={church_id}
-            onChange={handleChangeChurchID}
-          >
-            <option value={1}>Selecciona una iglesia o capilla</option>
-            {churchs.map((church) => {
-              return (
-                <option key={church.pam_group_id} value={church.pam_group_id}>
-                  {church.group_name}
+                <option key={deanery.deanery_id} value={deanery.deanery_id}>
+                  {deanery.name}
                 </option>
               );
             })}

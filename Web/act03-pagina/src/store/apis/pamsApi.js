@@ -107,19 +107,49 @@ const pamsApi = createApi({
       }),
       addPamByEmail: builder.mutation({
         invalidatesTags: ["Pams"],
-        query: (pam) => {
+        query: (user) => {
           return {
             method: 'POST',
             url: '/addPamByEmail',
             body: {
-              email: pam.email,
+              email: user.email
             },
           };
         },
       }),
+      
+      fetchPamWithTestResultInRange: builder.query({
+        providesTags: ["Pams"],
+        query: ({ testId, lowerBoundary, upperBoundary }) => {
+          return {
+            url: "/getPamsWithTestResultInRange",
+            params: {
+              test_id: testId,
+              lower_boundary: lowerBoundary,
+              upper_boundary: upperBoundary,
+            },
+            method: "GET",
+          };
+        },
+      }),
+
+      fetchTestQuestionResults: builder.query({
+        providesTags: ["Pams"],
+        query: ({ testId, questionNumber }) => {
+          return {
+            url: "/sp_get_test_question_results",
+            params: {
+              testId,
+              questionNumber,
+            },
+            method: "GET",
+          };
+        },
+      }),
+      
     };
   },
 });
 
-export const { useFetchPamsQuery, useFetchPamsGroupsQuery, useFetchPamByEmailQuery,useAddPamMutation, useEditPamMutation, useDeletePamMutation, useAddPamByEmailMutation } = pamsApi;
+export const { useFetchPamsQuery, useFetchPamsGroupsQuery, useFetchPamByEmailQuery,useAddPamMutation, useEditPamMutation, useDeletePamMutation, useAddPamByEmailMutation,  useFetchPamWithTestResultInRangeQuery, useFetchTestQuestionResultsQuery} = pamsApi;
 export { pamsApi };

@@ -1,14 +1,14 @@
-//import "./PersonaAdultasMayores.css";
+import "./PersonaAdultasMayores.css";
 import { Table, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { useFetchPamsGroupsQuery, changePam, useDeletePamMutation } from "../store";
+import { useFetchPamsQuery, changePam, useDeletePamMutation } from "../store";
 import { Link, useNavigate } from "react-router-dom";
 import { AiTwotoneEdit, AiFillDelete, AiFillFileAdd } from "react-icons/ai";
 
 function PersonasAdultasMayores() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { data, error, isFetching } = useFetchPamsGroupsQuery();
+  const { data, error, isFetching } = useFetchPamsQuery();
   const [deletePam, resultsDelete] = useDeletePamMutation();
 
   const handleEdit = (pam) => {
@@ -59,7 +59,7 @@ function PersonasAdultasMayores() {
             {!isFetching &&
               data.pams.map((pam) => (
                 <tr className="PamsDetail" key={pam.pam_id}>
-                  <td>{pam.first_name}</td>
+                  <td>{pam.name}</td>
                   <td>{pam.last_name}</td>
                   <td>{pam.email}</td>
                   <td>{pam.birth_date}</td>
@@ -69,7 +69,7 @@ function PersonasAdultasMayores() {
                     onClick={() => {handleEdit(
                       {
                         pam_id: pam.pam_id,
-                        first_name: pam.first_name,
+                        name: pam.name,
                         last_name: pam.last_name,
                         email: pam.email,
                         birth_date: pam.birth_date,
@@ -77,7 +77,6 @@ function PersonasAdultasMayores() {
                         archdiocese_id: pam.archdiocese_id,
                         zone_id: pam.zone_id,
                         deanery_id: pam.deanery_id,
-                        church_id: pam.church_id,
                       }
                     )}}
                     >

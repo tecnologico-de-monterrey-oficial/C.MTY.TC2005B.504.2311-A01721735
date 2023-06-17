@@ -24,7 +24,8 @@ const pamSlice = createSlice({
         archdiocese_id: 1,
         zone_id: 1,
         deanery_id: 1,
-        church_id: 1
+        church_id: 1,
+        selectedTest: ""
     },
     reducers: {
         changeName(state, action) {
@@ -94,6 +95,9 @@ const pamSlice = createSlice({
         changeChurchId(state, action) {
             state.church_id = action.payload;
         },
+        changeSelectedTest(state, action) {
+            state.selectedTest = action.payload;
+        },
         changePam(state, action) {
             state.first_name = action.payload.first_name;
             state.last_name = action.payload.last_name;
@@ -117,6 +121,7 @@ const pamSlice = createSlice({
             state.zone_id = action.payload.zone_id;
             state.deanery_id = action.payload.deanery_id; 
             state.church_id = action.payload.church_id;
+            state.selectedTest = action.payload.selectedTest;
            
         },
         
@@ -143,6 +148,7 @@ const pamSlice = createSlice({
             state.zone_id = 1;
             state.deanery_id = 1;
             state.church_id = 1;
+            state.selectedTest = ""
         }
     }
 });
@@ -171,6 +177,7 @@ export const {
     changeZoneId,
     changeDeaneryId,
     changeChurchId,
+    changeSelectedTest,
     resetPamValues 
 } = pamSlice.actions;
 export const pamReducer = pamSlice.reducer;

@@ -17,16 +17,6 @@ const pamsApi = createApi({
           };
         },
       }),
-      fetchPamsGroups: builder.query({
-        providesTags: ["Pams"], // Ahorita vemos de que se trata
-        query: () => {
-          return {
-            url: "/getPamsGroups",
-            params: {},
-            method: "GET",
-          };
-        },
-      }),
       addPam: builder.mutation({
         invalidatesTags: ["Pams"],
         query: (pam) => {
@@ -34,7 +24,7 @@ const pamsApi = createApi({
             method: 'POST',
             url: '/addPam',
             body: {
-              first_name: pam.first_name,
+              name: pam.name,
               last_name: pam.last_name,
               email: pam.email,
               birth_date: pam.birth_date,
@@ -51,7 +41,7 @@ const pamsApi = createApi({
             method: 'PUT',
             url: `/updatePam/${pam.pam_id}`,
             body: {
-              first_name: pam.first_name,
+              name: pam.name,
               last_name: pam.last_name,
               email: pam.email,
               birth_date: pam.birth_date,
@@ -74,5 +64,5 @@ const pamsApi = createApi({
   },
 });
 
-export const { useFetchPamsQuery, useFetchPamsGroupsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } = pamsApi;
+export const { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } = pamsApi;
 export { pamsApi };

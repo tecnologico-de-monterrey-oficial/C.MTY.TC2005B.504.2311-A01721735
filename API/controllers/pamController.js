@@ -215,6 +215,54 @@ class MainController {
     }
   }
 
+  async getPamsWithTestResultInRange(req, res) {
+    console.log("Get Pams by Score");
+    const { test_id, lower_boundary, upper_boundary } = req.query;
+  
+    if (test_id && lower_boundary && upper_boundary) {
+      const sql = `CALL sp_get_pams_with_test_result_in_range(?, ?, ?)`;
+      mysql.query(
+        sql,
+        [test_id, lower_boundary, upper_boundary],
+        (error, data, fields) => {
+          if (error) {
+            res.status(500).send(error.message);
+            console.log(error.message);
+          } else {
+            console.log(data);
+            const pams = data[0];
+            res.json({ pams });
+          }
+        }
+      );
+    } else {
+      res.status(400).send("Please provide all parameters!");
+      console.log("Please provide all parameters!");
+    }
+  }
+
+  async sp_get_test_question_results(req, res) {
+    console.log("Get Test Question Results");
+    const { testId, questionNumber } = req.query;
+
+    if (testId && questionNumber) {
+      const sql = `CALL sp_get_test_question_results(?, ?)`;
+      mysql.query(sql, [testId, questionNumber], (error, data, fields) => {
+        if (error) {
+          res.status(500).send(error.message);
+          console.log(error.message);
+        } else {
+          console.log(data);
+          const testQuestionResults = data[0];
+          res.json({ testQuestionResults });
+        }
+      });
+    } else {
+      res.status(400).send("Please provide all parameters!");
+      console.log("Please provide all parameters!");
+    }
+  }
+
   async deletePam(req, res) {
     console.log("Delete Pam RTQ");
     console.log(req.params.id);
@@ -242,6 +290,8 @@ class MainController {
       console.log("Por favor llena todos los datos!");
     }
   }
+
+
 }
 
 const pamController = new MainController();

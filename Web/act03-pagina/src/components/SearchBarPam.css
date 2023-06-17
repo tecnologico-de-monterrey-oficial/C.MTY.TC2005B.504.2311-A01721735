@@ -1,13 +1,13 @@
 .search-bar-container {
-    margin-bottom: 10px;
-  }
-  
-  .search-bar-input {
-    width: 80%;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid;
-    border-radius: 4px;
-    background-color: antiquewhite;
-    color: black;
-  }
+  margin-bottom: 10px;
+}
+
+.search-bar-input {
+  width: 80%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid;
+  border-radius: 4px;
+  background-color: antiquewhite;
+  color: black;
+}

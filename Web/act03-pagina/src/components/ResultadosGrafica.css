@@ -1,0 +1,68 @@
+.todoResultadoGrafica {
+    margin-top: 1.25rem;
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+    border-radius: 0.625rem;
+    height: 100%;
+  }
+
+  .todoResultadoGrafica h2 {
+    font-size: 2.5em;
+    font-family: 'Sanchez', serif;
+    padding-bottom: 1.25rem;
+    text-align: left;
+    margin-left: 2rem;
+  }
+  
+  .todoResultadoGrafica h1,
+  .todoResultadoGrafica p {
+    text-align: left;
+  }
+
+  .fotoResultadoGrafica img {
+    display: inline-block;
+    border-radius: 50%;
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .fotoResultadoGrafica  p{
+    font-family: 'Lato', italic;
+    font-size: 1.875rem;
+    padding-bottom: 1.25rem;
+    text-align: center;
+  }
+  
+  .todoResultadoGrafica h1 {
+    font-size: 3.75rem;
+    font-family: serif;
+    padding-bottom: 1.25rem;
+  }
+
+  .botonContainerRegresarGrafica {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 3rem;
+  }
+  
+.botonContainerRegresarGrafica .botonRegresarGrafica {
+    background-color: #D9D9D9;
+    border: 2px solid #D9D9D9;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+
+  .botonContainerRegresarGrafica .botonRegresarGrafica h2{
+    font-size: 1.4rem;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    color: black;
+  }
+
+
+  .botonContainerRegresarGrafica .botonRegresarGrafica:hover {
+    background-color: #D9D9D9;
+    border: 2px solid #D9D9D9;
+    color: black;
+  }

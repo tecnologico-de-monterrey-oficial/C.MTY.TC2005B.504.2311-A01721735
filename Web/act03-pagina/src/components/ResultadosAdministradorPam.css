@@ -1,0 +1,130 @@
+
+
+.todoResultadoAdministradorPam{
+    margin-top: 1.25rem;
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+    border-radius: 0.625rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .todoResultadoAdministradorPam h1 {
+    font-size: 4rem;
+    text-align: left;
+    font-family: 'Sanchez', serif;
+  }
+
+  .todoResultadoAdministradorPam h2 {
+    font-size: 3rem;
+    padding-left:  2rem;
+    text-align: left;
+    font-family: 'Sanchez', serif;
+  }
+
+  
+  .todoResultadoAdministradorPam h3 {
+    font-size: 3rem;
+    padding-left:  2rem;
+    text-align: left;
+    font-family: 'Lato';
+    padding-top: 1rem;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .topButtonsAdministradorPam {
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
+    font-size: 0.5rem;
+    margin-right: 2rem;
+  }
+  
+  .buttonContainerAdministradorPam {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    margin: 0.5rem;
+  }
+  
+  .buttonContainerAdministradorPam .btn {
+    font-size: 1.4rem;
+    margin: -0.4rem;
+    align-items: center;
+  }
+  
+  .buttonContainerAdministradorPam .dropdown-toggle  {
+    font-weight: bold;
+    color: black;
+    background-color: #EFE3CB;
+    border: 2px solid #EFE3CB;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
+  
+  .buttonContainerAdministradorPam .dropdown-toggle:hover  {
+    background-color: #EFE3CB;
+    border: 2px solid #EFE3CB;
+    color: black;
+  }
+  
+  .buttonContainerAdministradorPam .dropdown-toggle:focus {
+    background-color: #EFE3CB;
+    border: 2px solid #EFE3CB;
+    color: black;
+  }
+  
+  .buttonContainerAdministradorPam .dropdown-toggle:active {
+    background-color: #EFE3CB !important;
+    border: 2px solid #EFE3CB !important;
+    color: black !important;
+  }
+  
+.botonContainerRegresarAdministradorPam {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 3rem;
+  }
+  
+.botonContainerRegresarAdministradorPam .botonRegresarAdministradorPam {
+    background-color: #D9D9D9;
+    border: 2px solid #D9D9D9;
+    margin-left: 3rem;
+  }
+
+  .botonContainerRegresarAdministradorPam .botonRegresarAdministradorPam h4{
+    font-size: 1.4rem;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    color: black;
+  }
+
+
+  .botonContainerRegresarAdministradorPam .botonRegresarAdministradorPam:hover {
+    background-color: #D9D9D9;
+    border: 2px solid #D9D9D9;
+    color: black;
+  }
+
+.centered-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.primerPiechart, .segundoPiechart {
+    background-color: #EFE3CB;
+    border-radius: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.chart-container {
+  width: 500px;
+  height: 500px;
+  align-items: center;
+}

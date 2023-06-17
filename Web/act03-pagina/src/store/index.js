@@ -30,6 +30,7 @@ import {
     changeDeaneryId,
     changeChurchId,
     changePam, 
+    changeSelectedTest,
     resetPamValues 
 } from "./slices/pamSlice";
 
@@ -91,6 +92,7 @@ export {
     changeDeaneryId,
     changeChurchId,
     changePam, 
+    changeSelectedTest,
     resetPamValues,
     setUser,
     setLoading,
@@ -104,7 +106,9 @@ export {
     useEditPamMutation, 
     useDeletePamMutation,
     useFetchPamByEmailQuery,
-    useAddPamByEmailMutation
+    useAddPamByEmailMutation,
+    useFetchPamWithTestResultInRangeQuery,
+    useFetchTestQuestionResultsQuery
 } from "./apis/pamsApi";
 export {
     useFetchArchdiocesesQuery

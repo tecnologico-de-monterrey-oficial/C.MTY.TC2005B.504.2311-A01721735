@@ -60,6 +60,8 @@ const [isLogged, setIsLogged] = useState(false);
               <NavDropdown.Item >Other</NavDropdown.Item>
             </NavDropdown>
             <Link className="Link" to="/Registro">Registro</Link>
+            <Link className="Link" to="/ResultadosAdministrador">Resultados ADMIN</Link>
+            <Link className="Link" to="/Resultados">Resultados VISTA PAM</Link>
           
         </Nav>
         <Nav className="justify-content-end">

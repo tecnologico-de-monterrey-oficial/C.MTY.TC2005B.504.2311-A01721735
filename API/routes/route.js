@@ -12,6 +12,8 @@ router.get('/api/getPamByEmail/:email', pamController.getPamByEmail);
 router.post('/api/addPamByEmail', pamController.addPamByEmail);
 router.get('/api/getPam/:id', pamController.getPam);
 router.post('/api/addPam', pamController.addPam);
+router.get('/api/getPamsWithTestResultInRange', pamController.getPamsWithTestResultInRange);
+router.get('/api/sp_get_test_question_results', pamController.sp_get_test_question_results);
 router.put('/api/updatePam/:id', pamController.updatePam);
 router.delete('/api/deletePam/:id', pamController.deletePam);
 router.get('/api/getGroupArchdioceses', archdioceseController.getArchdioceses);

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const pamSlice = createSlice({
     name: 'pam',
     initialState: {
-        first_name: '',
+        name: '',
         last_name: '',
         email: '',
         birth_date: '',
@@ -11,11 +11,10 @@ const pamSlice = createSlice({
         archdiocese_id: 1,
         zone_id: 1,
         deanery_id: 1,
-        church_id: 1
     },
     reducers: {
         changeName(state, action) {
-            state.first_name = action.payload;
+            state.name = action.payload;
         },
         changeLastName(state, action) {
             state.last_name = action.payload;
@@ -38,22 +37,18 @@ const pamSlice = createSlice({
         changeDeaneryId(state, action) {
             state.deanery_id = action.payload;
         },
-        changeChurchId(state, action) {
-            state.church_id = action.payload;
-        },
         changePam(state, action) {
-            state.first_name = action.payload.name;
+            state.name = action.payload.name;
             state.last_name = action.payload.last_name;
             state.email = action.payload.email;
             state.birth_date = action.payload.birth_date;
             state.archdiocese = action.payload.archdiocese;
             state.archdiocese_id = action.payload.archdiocese_id;
             state.zone_id = action.payload.zone_id;
-            state.deanery_id = action.payload.deanery_id; 
-            state.church_id = action.payload.church_id;
+            state.deanery_id = action.payload.deanery_id;
         },
         resetPamValues(state, action) {
-            state.first_name = '';
+            state.name = '';
             state.last_name = '';
             state.email = '';
             state.birth_date = '';
@@ -61,7 +56,6 @@ const pamSlice = createSlice({
             state.archdiocese_id = 1;
             state.zone_id = 1;
             state.deanery_id = 1;
-            state.church_id = 1;
         }
     }
 });
@@ -75,7 +69,6 @@ export const {
     changeArchdioceseId,
     changeZoneId,
     changeDeaneryId,
-    changeChurchId,
     changePam, 
     resetPamValues 
 } = pamSlice.actions;

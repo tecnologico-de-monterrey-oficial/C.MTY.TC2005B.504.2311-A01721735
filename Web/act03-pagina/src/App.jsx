@@ -24,6 +24,14 @@ import LWB from './components/LWB';
 import EditRegistro from './components/EditRegistro';
 import Signin from './components/Signin';
 import Protected from './components/Protected';
+import ResultadosTest from './components/ResultadosTest';
+import Resultados from './components/Resultados';
+import ResultadosPrueba from './components/ResultadosPrueba';
+import ResultadosGrafica from './components/ResultadosGrafica';
+import ResultadosAdministrador from './components/ResultadosAdministrador';
+import ResultadosAdministradorPam from './components/ResultadosAdministradorPam';
+import ResultadosPregunta from './components/ResultadosPregunta';
+
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -70,10 +78,14 @@ function App() {
           <Route path="/PruebaGDS" element={<PruebaGDS />} />
           <Route path = "/Login" element={<Signin />} />
           <Route path = "/Atras" element={<Abuelitos />} />
-         
-          
-          
-          
+          <Route path = "/ResultadosTest" element={<ResultadosTest />} />
+          <Route path = "/Resultados" element={<Resultados />} />
+          <Route path = "/ResultadosPrueba" element={<ResultadosPrueba />} />
+          <Route path = "/ResultadosGrafica" element={<ResultadosGrafica />} />
+          <Route path = "/ResultadosAdministrador" element={<ResultadosAdministrador />} />
+          <Route path = "/ResultadosAdministradorPam" element={<ResultadosAdministradorPam />} />
+          <Route path = "/ResultadosPregunta" element={<ResultadosPregunta />} />
+           
         </Routes>
         <BottomNav />
         

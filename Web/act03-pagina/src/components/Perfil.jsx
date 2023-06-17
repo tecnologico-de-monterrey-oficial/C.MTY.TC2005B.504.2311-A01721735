@@ -8,6 +8,7 @@ import { setRole } from '../store/slices/authSlice';
 import {useAddPamByEmailMutation} from "../store";
 
 function Perfil() {
+    
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.auth);
     const {data, error, isFetching} = useFetchPamByEmailQuery(user ? user.email : " ");
@@ -31,7 +32,6 @@ function Perfil() {
             }
             else{
                 setPamFound(false);
-
             }
         }
     }, [data]);

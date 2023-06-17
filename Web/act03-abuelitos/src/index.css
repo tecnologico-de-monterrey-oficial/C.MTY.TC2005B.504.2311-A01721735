@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
   display: flex;
@@ -20,3 +21,4 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
